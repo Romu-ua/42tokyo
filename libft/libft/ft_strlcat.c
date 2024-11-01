@@ -12,7 +12,19 @@
 
 #include <stddef.h>
 
-int	strlen(char *str)
+int	strlen_char(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		i++;
+	}
+	return (i);
+}
+
+int	strlen_const(const char *str)
 {
 	int	i;
 
@@ -30,8 +42,8 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 	size_t	dstlen;
 	size_t	srclen;
 
-	dstlen = strlen(dst);
-	srclen = strlen(src);
+	dstlen = strlen_char(dst);
+	srclen = strlen_const(src);
 	i = 0;
 	while(i < size - 1)
 	{

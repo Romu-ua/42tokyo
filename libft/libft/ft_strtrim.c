@@ -1,47 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_atoi.c                                          :+:      :+:    :+:   */
+/*   ft_strtrim.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyamamot <ymmthrm15@fuji.waseda.jp>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 15:25:55 by hyamamot          #+#    #+#             */
-/*   Updated: 2024/10/29 15:25:56 by hyamamot         ###   ########.fr       */
+/*   Created: 2024/11/01 09:54:17 by hyamamot          #+#    #+#             */
+/*   Updated: 2024/11/01 09:54:19 by hyamamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-int	ft_atoi(const char *nptr)
+char	*ft_strtrim(char const *s1, char const *set)
 {
-	int			is_negative;
-	int			i;
-	int			result;
-	const char	*last_nptr;
+	const int		setlen = ft_strlen(set);
+	const int		s1len = ft_strlen(s1);
+	char			*result;
+	int				is_trim;
+	int				i;
 
-	is_negative = 0;
-	if (nptr[0] == '-' || nptr[0] == '+')
-	{
-		if (nptr[0] == '-')
-			is_negative = 1;
-		nptr++;
-	}
+	is_trim = 1;
 	i = 0;
-	while (nptr[i])
+	while (i < setlen)
 	{
-		if (!ft_isdigit(nptr[i]))
+		if (s1[i] != set[i])
 		{
-			last_nptr = (nptr + i);
+			is_trim = 0;
 			break;
 		}
+		i++;
 	}
-	if (!nptr[i])
-		last_nptr = nptr + i;
-	result = 0;
-	while (nptr != last_nptr)
+	i = 0;
+	while (i < setlen)
 	{
-		result = result * 10 + (*nptr - '0'); 
-		nptr++;
+		if (s1[s1len - setlen + i] != set[i])
+		{
+			is_trim = 0;
+			break;
+		}
+		i++;
 	}
+	if (is_trim)
+		result = ft_substr(s1, (unsigned int)setlen, (size_t)(s1len - setlen * 2));
 	return (result);
 }

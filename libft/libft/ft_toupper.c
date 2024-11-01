@@ -13,6 +13,6 @@
 int toupper(int c)
 {
 	if ('a' <= c && c <= 'z')
-		c == 'a' - 'A';
+		c = c - 'a' - 'A';
 	return (c);
 }

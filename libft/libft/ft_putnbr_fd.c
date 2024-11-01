@@ -1,28 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyamamot <ymmthrm15@fuji.waseda.jp>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 14:31:26 by hyamamot          #+#    #+#             */
-/*   Updated: 2024/10/29 14:31:28 by hyamamot         ###   ########.fr       */
+/*   Created: 2024/11/01 12:08:26 by hyamamot          #+#    #+#             */
+/*   Updated: 2024/11/01 12:08:27 by hyamamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strrchr(const char *s, int c)
+void	ft_putnbr_fd(int n, int fd)
 {
-	int i;
+	char	c;
 
-	i = ft_strlen(s);
-	while (i)
+	if (n == INT_MIN)
 	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
-		i--;
+		write(fd, "-214748364", 12);
+		return ;
 	}
-	return (NULL);
-		
+	else if (n < 0)
+	{
+		write(fd, '-', 1);
+		n = -n;
+	}
+
+	if (n > 9)
+	{
+		n /= 10;
+		ft_putnbr_fd(n, fd);
+	}
+	else
+	{
+		c = n % 10 + '0';
+		write(fd, c, 1);
+	}
+	return ;
 }

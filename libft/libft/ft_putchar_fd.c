@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyamamot <ymmthrm15@fuji.waseda.jp>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 14:31:26 by hyamamot          #+#    #+#             */
-/*   Updated: 2024/10/29 14:31:28 by hyamamot         ###   ########.fr       */
+/*   Created: 2024/11/01 11:59:01 by hyamamot          #+#    #+#             */
+/*   Updated: 2024/11/01 11:59:02 by hyamamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strrchr(const char *s, int c)
+void	ft_putchar_fd(char c, int fd)
 {
-	int i;
-
-	i = ft_strlen(s);
-	while (i)
-	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
-		i--;
-	}
-	return (NULL);
-		
+	write(fd, c, 1);
 }

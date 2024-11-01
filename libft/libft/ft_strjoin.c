@@ -1,28 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strrchr.c                                       :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyamamot <ymmthrm15@fuji.waseda.jp>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/29 14:31:26 by hyamamot          #+#    #+#             */
-/*   Updated: 2024/10/29 14:31:28 by hyamamot         ###   ########.fr       */
+/*   Created: 2024/11/01 09:26:58 by hyamamot          #+#    #+#             */
+/*   Updated: 2024/11/01 09:27:39 by hyamamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-char *ft_strrchr(const char *s, int c)
-{
-	int i;
 
-	i = ft_strlen(s);
-	while (i)
+char	*ft_strjoin(char const *s1, char const *s2)
+{
+	const int	lens1 = ft_strlen(s1);
+	const int	lens2 = ft_strlen(s2);
+	int			i;
+	char		*result;
+
+	result = (char *)malloc(sizeof(char) * (lens1 + lens2 + 1));
+	i = 0;
+	while (i < lens1)
 	{
-		if (s[i] == (char)c)
-			return ((char *)(s + i));
-		i--;
+		result[i] = s1[i];
+		i++;
 	}
-	return (NULL);
-		
+	i = 0;
+	while(i < lens2)
+	{
+		result[lens1 + i] = s2[i];
+		i++;
+	}
+	result[lens1 + lens2] = '\0';
+	return (result);
 }
