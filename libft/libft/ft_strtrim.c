@@ -20,6 +20,7 @@ char	*ft_strtrim(char const *s1, char const *set)
 	int				is_trim;
 	int				i;
 
+	result = NULL;
 	is_trim = 1;
 	i = 0;
 	while (i < setlen)

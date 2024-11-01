@@ -18,8 +18,7 @@ void *ft_calloc(size_t nmemb, size_t size)
 	int		mul;
 
 	if (nmemb == 0 || size == 0)
-		return (NULL);
-	// TODO オーバーフローしたらエラーを返す、どうやってオーバーフローを判定するのか？
+		return (malloc(0));
 	mul = nmemb * size;
 	result = malloc(mul);
 	ft_memset(result, 0, mul);

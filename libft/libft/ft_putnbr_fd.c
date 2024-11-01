@@ -23,7 +23,7 @@ void	ft_putnbr_fd(int n, int fd)
 	}
 	else if (n < 0)
 	{
-		write(fd, '-', 1);
+		write(fd, "-", 1);
 		n = -n;
 	}
 
@@ -35,7 +35,7 @@ void	ft_putnbr_fd(int n, int fd)
 	else
 	{
 		c = n % 10 + '0';
-		write(fd, c, 1);
+		write(fd, &c, 1);
 	}
 	return ;
 }

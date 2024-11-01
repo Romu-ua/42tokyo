@@ -35,17 +35,17 @@ char	**ft_set(char const *s, char c)
 	return (result);
 }
 
-void	ft_strset(char const *s, char **result, int i, int prevlen)
+void	ft_strset(char const *s, char **result, int i, int j, int prevlen)
 {
 	int		k;
 
 	k = 0;
 	while (k < i - prevlen)
 	{
-		result[k] = s[i - prevlen + k];
+		result[j][k] = s[i - prevlen + k];
 		k++;
 	}
-	result[k] = '\0';
+	result[j][k] = '\0';
 }
 
 void	ft_free(char **result, char const *s, char c)
@@ -77,15 +77,16 @@ char	**ft_split(char const *s, char c)
 	{
 		if (s[i] == c)
 		{
-			result[j] = (char)malloc(sizeof(char) * (i - prevlen + 1));
+			result[j] = (char *)malloc(sizeof(char) * (i - prevlen + 1));
 			if (!result)
 			{
 				ft_free(result, s, c);
 				return (NULL);
 			}
-			ft_strset(s, result, i, prevlen);
+			ft_strset(s, result, i, j, prevlen);
 			prevlen = i;
 		}
 		i++;
 	}
+	return (result);
 }

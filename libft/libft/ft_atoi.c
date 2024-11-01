@@ -34,6 +34,7 @@ int	ft_atoi(const char *nptr)
 			last_nptr = (nptr + i);
 			break;
 		}
+		i++;
 	}
 	if (!nptr[i])
 		last_nptr = nptr + i;

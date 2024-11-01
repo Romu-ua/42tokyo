@@ -10,15 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stddef.h>
+#include "libft.h"
 
 void	*ft_memmove(void *dest, const void *src, size_t n)
 {
 	size_t			i;
 	unsigned char	*temp;
-
+	
+	if (dest == NULL || src == NULL)
+		return (NULL);
 	i = 0;
-	temp = NULL;
+	temp = (unsigned char *)malloc(n * sizeof(unsigned char));
+	if (temp == NULL)
+    	return (NULL);
+
 	while (i < n)
 	{
 		temp[i] = ((unsigned char *)src)[i];
@@ -30,5 +35,6 @@ void	*ft_memmove(void *dest, const void *src, size_t n)
 		((unsigned char *)dest)[i] = temp[i];
 		i++;
 	}
+	free(temp);
 	return (dest);
 }

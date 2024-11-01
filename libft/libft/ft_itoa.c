@@ -69,8 +69,8 @@ char	*ft_itoa(int n)
 	char			*result;
 	int				is_negative;
 	const int		len = count_len(n);
-	int				i;
 
+	result = NULL;
 	if (n == 0)
 	{
 		result = is_zero(result);

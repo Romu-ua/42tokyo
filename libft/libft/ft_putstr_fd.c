@@ -14,8 +14,6 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	const int	len = ft_strlen(s);
-
 	while (*s)
 	{
 		ft_putchar_fd(*s, fd);
