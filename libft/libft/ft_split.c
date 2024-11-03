@@ -12,81 +12,75 @@
 
 #include "libft.h"
 
-int	count(char const *s, char c)
+int	count_words(char const *s, char c)
 {
 	int	cnt;
+	int	in_substring;
 
 	cnt = 0;
+	in_substring = 0;
 	while (*s)
 	{
-		if (*s == c)
+		if (*s != c && in_substring == 0)
+		{
+			in_substring = 1;
 			cnt++;
+		}
+		else if(*s == c)
+		{
+			in_substring = 0;
+		}
 		s++;
 	}
-	return (cnt + 1);
+	return (cnt);
 }
 
-char	**ft_set(char const *s, char c)
+void free_all(char **result, int j)
 {
-	const int	split_count = count(s, c);
-	char		**result;
-
-	result = (char **)malloc(sizeof(char) * (split_count + 1));
-	return (result);
-}
-
-void	ft_strset(char const *s, char **result, int i, int j, int prevlen)
-{
-	int		k;
-
-	k = 0;
-	while (k < i - prevlen)
+	while (j >= 0)
 	{
-		result[j][k] = s[i - prevlen + k];
-		k++;
-	}
-	result[j][k] = '\0';
-}
-
-void	ft_free(char **result, char const *s, char c)
-{
-	const int	cnt = count(s, c);
-	int			i;
-
-	i = 0;
-	while (i < cnt)
-	{
-		free(result[i]);
+		free(result[j]);
+		j--;
 	}
 	free(result);
 }
 
 char	**ft_split(char const *s, char c)
 {
-	const int	len = ft_strlen(s);
-	char		**result;
-	int			prevlen;
-	int			i;
-	int			j;
+	char	**result;
+	int		word_count;
+	int		i;
+	int		j;
+	int		start;
+	int		is_terminal;
 
-	result = ft_set(s, c);
-	j = 0;
+	if (!s)
+		return (NULL);
+	word_count = count_words(s, c);
+	result = (char **)malloc(sizeof(char *) * (word_count + 1));
+	if (!result)
+		return (NULL);
 	i = 0;
-	prevlen = 0;
-	while (i < len)
+	j = 0;
+	start = -1;
+	while (s[i])
 	{
-		if (s[i] == c)
+		if (s[i] != c && start < 0)
+			start = i;
+		else if ((s[i] == c || s[i + 1] == '\0') && start >= 0)
 		{
-			result[j] = (char *)malloc(sizeof(char) * (i - prevlen + 1));
-			if (!result)
+			is_terminal = (s[i + 1] == '\0' && s[i] != c);
+			result[j] = ft_substr(s, start, i - start + is_terminal);
+			if (!result[j])
 			{
-				ft_free(result, s, c);
+				free_all(result, j - 1);
 				return (NULL);
 			}
-			ft_strset(s, result, i, j, prevlen);
-			prevlen = i;
+			j++;
+			start = -1;
 		}
 		i++;
 	}
+	result[j] = NULL;
 	return (result);
 }

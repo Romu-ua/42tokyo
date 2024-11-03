@@ -14,35 +14,18 @@
 
 char	*ft_strtrim(char const *s1, char const *set)
 {
-	const int		setlen = ft_strlen(set);
-	const int		s1len = ft_strlen(s1);
-	char			*result;
-	int				is_trim;
-	int				i;
+	size_t	start;
+	size_t	end;
+	char	*result;
 
-	result = NULL;
-	is_trim = 1;
-	i = 0;
-	while (i < setlen)
-	{
-		if (s1[i] != set[i])
-		{
-			is_trim = 0;
-			break;
-		}
-		i++;
-	}
-	i = 0;
-	while (i < setlen)
-	{
-		if (s1[s1len - setlen + i] != set[i])
-		{
-			is_trim = 0;
-			break;
-		}
-		i++;
-	}
-	if (is_trim)
-		result = ft_substr(s1, (unsigned int)setlen, (size_t)(s1len - setlen * 2));
+	if (!s1 || !set)
+		return (NULL);
+	start = 0;
+	end = ft_strlen(s1);
+	while (s1[start] && ft_strchr(set, s1[start]))
+		start++;
+	while (end > start && ft_strchr(set, s1[end-1]))
+		end--;
+	result = ft_substr(s1, start, end - start);
 	return (result);
 }

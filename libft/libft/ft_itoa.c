@@ -26,7 +26,9 @@ int	count_len(int n)
 {
 	int	len;
 
-	len = 0;
+	if (n < 0)
+		n = -n;
+	len = 1;
 	while (n > 9)
 	{
 		n /= 10;
@@ -41,27 +43,21 @@ char	*is_nmalloc(int is_negative, int len, char *result)
 		result = (char *)malloc(sizeof(char *) * (len + 2));
 	else
 		result = (char *)malloc(sizeof(char *) * (len + 1));
-	return (NULL);
+	if (!result)
+		return (NULL);
+	return (result);
 }
 
 void	is_set(unsigned int n, int len, int is_negative, char *result)
 {
-	int	i;
-
-	i = 0;
-	while (i < len)
+	result[len--] = '\0';
+	while (len > is_negative)
 	{
-		result[i] = n % 10 + '0';
+		result[len--] = n % 10 + '0';
 		n /= 10;
-		i++;
 	}
 	if (is_negative)
-	{
-		result[i] = '-';
-		result[i + 1] = '\0';
-	}
-	else
-		result[i] = '\0';
+		result[0] = '-';
 }
 
 char	*ft_itoa(int n)
@@ -76,6 +72,7 @@ char	*ft_itoa(int n)
 		result = is_zero(result);
 		if (!result)
 			return (NULL);
+		return (result);
 	}
 	is_negative = 0;
 	if (n < 0)
