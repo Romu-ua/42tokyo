@@ -11,5 +11,6 @@
 	int		ft_strlen(const char *s);
 	void	*ft_memset(void *b, int c, int len);
 	void	ft_bzero(void *s, size_t n);
+	char	*ft_itoa(int n);
 
 #endif

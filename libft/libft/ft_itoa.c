@@ -11,6 +11,7 @@
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdio.h>
 
 char	*is_zero(char *result)
 {
@@ -26,35 +27,36 @@ int	count_len(int n)
 {
 	int	len;
 
-	if (n < 0)
-		n = -n;
 	len = 1;
+	if(n<0){
+		n = -n;
+		len++;
+	}
 	while (n > 9)
 	{
 		n /= 10;
 		len++;
 	}
+	
 	return (len);
 }
 
-char	*is_nmalloc(int is_negative, int len, char *result)
+char	*is_nmalloc(int len, char *result)
 {
-	if (is_negative)
-		result = (char *)malloc(sizeof(char *) * (len + 2));
-	else
-		result = (char *)malloc(sizeof(char *) * (len + 1));
+	result = (char *)malloc(sizeof(char) * (len + 1));
 	if (!result)
 		return (NULL);
 	return (result);
 }
 
-void	is_set(unsigned int n, int len, int is_negative, char *result)
+void	is_set(int n, int len, int is_negative, char *result)
 {
 	result[len--] = '\0';
-	while (len > is_negative)
+	while (len >= 0)
 	{
-		result[len--] = n % 10 + '0';
+		result[len] = n % 10 + '0';
 		n /= 10;
+		len--;
 	}
 	if (is_negative)
 		result[0] = '-';
@@ -74,15 +76,15 @@ char	*ft_itoa(int n)
 			return (NULL);
 		return (result);
 	}
-	is_negative = 0;
-	if (n < 0)
+	if (n == INT_MIN)
 	{
-		is_negative = 1;
-		n = (unsigned int)(-(n + 1)) + 1;
+		result = ft_strdup("-2147483648");
+		return (result);
 	}
-	else
-		n = (unsigned int)n;
-	result = is_nmalloc(is_negative, len, result);
+	is_negative = (n < 0);
+	if (is_negative)
+		n = -n;
+	result = is_nmalloc(len, result);
 	if (!result)
 		return (NULL);
 	is_set(n, len, is_negative, result);
