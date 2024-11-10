@@ -12,7 +12,6 @@
 
 #include "libft.h"
 
-
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	const int	lens1 = ft_strlen(s1);
@@ -28,7 +27,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 		i++;
 	}
 	i = 0;
-	while(i < lens2)
+	while (i < lens2)
 	{
 		result[lens1 + i] = s2[i];
 		i++;

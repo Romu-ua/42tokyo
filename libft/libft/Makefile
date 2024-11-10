@@ -17,28 +17,28 @@ BONUS_SRCS = ft_isalpha.c ft_isdigit.c ft_isalnum.c ft_isascii.c ft_isprint.c ft
 
 OBJS = $(SRCS:.c=.o)
 BONUS_OBJS = $(BONUS_SRCS:.c=.o)
-TARGET = libft.a
-BONUS_TARGET = libft_bonus.a
+NAME = libft.a
+BONUS_NAME = libft_bonus.a
 
-$(TARGET): $(OBJS)
-	$(LIBS) $(TARGET) $(OBJS)
+$(NAME): $(OBJS)
+	$(LIBS) $(NAME) $(OBJS)
 
-$(BONUS_TARGET): $(BONUS_OBJS)
-	$(LIBS) $(BONUS_TARGET) $(BONUS_OBJS)
+$(BONUS_NAME): $(BONUS_OBJS)
+	$(LIBS) $(BONUS_NAME) $(BONUS_OBJS)
 
 %.o: %.c
 	$(CC) $(CFLAGS) -c $< -o $@
 
-all: $(TARGET)
+all: $(NAME)
 
-bonus: $(BONUS_TARGET)
-	@cp $(BONUS_TARGET) $(TARGET)
+bonus: $(BONUS_NAME)
+	@cp $(BONUS_NAME) $(NAME)
 
 clean:
 	rm -f $(OBJS) $(BONUS_OBJS)
 
 fclean: clean
-	rm -f $(TARGET) $(BONUS_TARGET)
+	rm -f $(NAME) $(BONUS_NAME)
 
 re: fclean all
 

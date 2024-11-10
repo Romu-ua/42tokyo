@@ -26,16 +26,14 @@ int	count_words(char const *s, char c)
 			in_substring = 1;
 			cnt++;
 		}
-		else if(*s == c)
-		{
+		else if (*s == c)
 			in_substring = 0;
-		}
 		s++;
 	}
 	return (cnt);
 }
 
-void free_all(char **result, int j)
+void	free_all(char **result, int j)
 {
 	while (j >= 0)
 	{
@@ -45,42 +43,49 @@ void free_all(char **result, int j)
 	free(result);
 }
 
-char	**ft_split(char const *s, char c)
+int	process_word(char const *s, char c, char **result)
 {
-	char	**result;
-	int		word_count;
-	int		i;
-	int		j;
-	int		start;
-	int		is_terminal;
+	int	i;
+	int	j;
+	int	start;
+	int	is_terminal;
 
-	if (!s)
-		return (NULL);
-	word_count = count_words(s, c);
-	result = (char **)malloc(sizeof(char *) * (word_count + 1));
-	if (!result)
-		return (NULL);
 	i = 0;
 	j = 0;
+	is_terminal = 0;
 	start = -1;
 	while (s[i])
 	{
 		if (s[i] != c && start < 0)
 			start = i;
-		else if ((s[i] == c || s[i + 1] == '\0') && start >= 0)
+		if ((s[i] == c || s[i + 1] == '\0') && start >= 0)
 		{
 			is_terminal = (s[i + 1] == '\0' && s[i] != c);
 			result[j] = ft_substr(s, start, i - start + is_terminal);
-			if (!result[j])
-			{
-				free_all(result, j - 1);
-				return (NULL);
-			}
-			j++;
+			if (!result[j++])
+				return (-1);
 			start = -1;
 		}
 		i++;
 	}
-	result[j] = NULL;
+	return (j);
+}
+
+char	**ft_split(char const *s, char c)
+{
+	char		**result;
+	const int	word_count = count_words(s, c);
+
+	if (!s)
+		return (NULL);
+	result = (char **)malloc(sizeof(char *) * (word_count + 1));
+	if (!result)
+		return (NULL);
+	if (process_word(s, c, result) == -1)
+	{
+		free_all(result, word_count);
+		return (NULL);
+	}
+	result[word_count] = NULL;
 	return (result);
 }

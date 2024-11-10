@@ -28,7 +28,8 @@ int	count_len(int n)
 	int	len;
 
 	len = 1;
-	if(n<0){
+	if (n < 0)
+	{
 		n = -n;
 		len++;
 	}
@@ -37,7 +38,6 @@ int	count_len(int n)
 		n /= 10;
 		len++;
 	}
-	
 	return (len);
 }
 
