@@ -1,19 +1,20 @@
 = Host-specific information ====================================================
 $> hostname; uname -msr
-yamaMacBook-Air.local
-Darwin 24.0.0 arm64
+c4r2s10.42tokyo.jp
+Linux 6.8.0-47-generic x86_64
 $> date
-2024年 11月10日 日曜日 10時55分27秒 JST
+2024年 11月 10日 日曜日 16:51:25 JST
 $> gcc --version
-Apple clang version 16.0.0 (clang-1600.0.26.3)
-Target: arm64-apple-darwin24.0.0
-Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+gcc (Ubuntu 10.5.0-1ubuntu1~22.04) 10.5.0
+Copyright (C) 2020 Free Software Foundation, Inc.
+This is free software; see the source for copying conditions.  There is NO
+warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+
 $> clang --version
-Apple clang version 16.0.0 (clang-1600.0.26.3)
-Target: arm64-apple-darwin24.0.0
+Ubuntu clang version 12.0.1-19ubuntu3
+Target: x86_64-pc-linux-gnu
 Thread model: posix
-InstalledDir: /Library/Developer/CommandLineTools/usr/bin
+InstalledDir: /usr/bin
 
 = libft.h=======================================================================
 $> norminette libft.h | grep -E '(Error|Warning)'
@@ -69,13 +70,13 @@ cc -Wall -Wextra -Werror -c ft_lstmap.c -o ft_lstmap.o
 ar -rc libft_bonus.a ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_strlen.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_strlcpy.o ft_strlcat.o ft_toupper.o ft_tolower.o ft_strchr.o ft_strrchr.o ft_strncmp.o ft_memchr.o ft_memcmp.o ft_strnstr.o ft_atoi.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_striteri.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o
 
 $> ls -la libft.a
--rw-r--r--  1 yamamototaimu  staff  38600 11 10 10:55 /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir/libft.a
+-rw-r--r-- 1 hyamamot 2024_tokyo 57750 11月 10 16:51 /home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir/libft.a
 
 = Part1_functions ==============================================================
 
 = ft_atoi ======================================================================
 $> norminette ft_atoi.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_atoi/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_atoi/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -175,7 +176,7 @@ Diff OK :D
 
 = ft_bzero =====================================================================
 $> norminette ft_bzero.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_bzero/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_bzero/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -190,7 +191,7 @@ Diff OK :D
 
 = ft_calloc ====================================================================
 $> norminette ft_calloc.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_calloc/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_calloc/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -200,7 +201,7 @@ Diff OK :D
 
 = ft_isalnum ===================================================================
 $> norminette ft_isalnum.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_isalnum/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_isalnum/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -240,7 +241,7 @@ Diff OK :D
 
 = ft_isalpha ===================================================================
 $> norminette ft_isalpha.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_isalpha/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_isalpha/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -280,7 +281,7 @@ Diff OK :D
 
 = ft_isascii ===================================================================
 $> norminette ft_isascii.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_isascii/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_isascii/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -320,7 +321,7 @@ Diff OK :D
 
 = ft_isdigit ===================================================================
 $> norminette ft_isdigit.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_isdigit/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_isdigit/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -360,7 +361,7 @@ Diff OK :D
 
 = ft_isprint ===================================================================
 $> norminette ft_isprint.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_isprint/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_isprint/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -403,7 +404,7 @@ Nothing turned in
 
 = ft_memchr ====================================================================
 $> norminette ft_memchr.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_memchr/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_memchr/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -438,7 +439,7 @@ Diff OK :D
 
 = ft_memcmp ====================================================================
 $> norminette ft_memcmp.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_memcmp/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_memcmp/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -488,7 +489,7 @@ Diff OK :D
 
 = ft_memcpy ====================================================================
 $> norminette ft_memcpy.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_memcpy/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_memcpy/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -508,7 +509,7 @@ Diff OK :D
 
 = ft_memmove ===================================================================
 $> norminette ft_memmove.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_memmove/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_memmove/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -538,7 +539,7 @@ Diff OK :D
 
 = ft_memset ====================================================================
 $> norminette ft_memset.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_memset/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_memset/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -563,7 +564,7 @@ Diff OK :D
 
 = ft_strchr ====================================================================
 $> norminette ft_strchr.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_strchr/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_strchr/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -598,7 +599,7 @@ Diff OK :D
 
 = ft_strdup ====================================================================
 $> norminette ft_strdup.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_strdup/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_strdup/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -608,7 +609,7 @@ Diff OK :D
 
 = ft_strlcat ===================================================================
 $> norminette ft_strlcat.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_strlcat/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_strlcat/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -658,7 +659,7 @@ Diff OK :D
 
 = ft_strlcpy ===================================================================
 $> norminette ft_strlcpy.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_strlcpy/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_strlcpy/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -688,7 +689,7 @@ Diff OK :D
 
 = ft_strlen ====================================================================
 $> norminette ft_strlen.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_strlen/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_strlen/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -723,7 +724,7 @@ Diff OK :D
 
 = ft_strncmp ===================================================================
 $> norminette ft_strncmp.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_strncmp/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_strncmp/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -783,7 +784,7 @@ Diff OK :D
 
 = ft_strnstr ===================================================================
 $> norminette ft_strnstr.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_strnstr/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_strnstr/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -838,7 +839,7 @@ Diff OK :D
 
 = ft_strrchr ===================================================================
 $> norminette ft_strrchr.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_strrchr/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_strrchr/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -883,7 +884,7 @@ Diff OK :D
 
 = ft_tolower ===================================================================
 $> norminette ft_tolower.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_tolower/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_tolower/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -923,7 +924,7 @@ Diff OK :D
 
 = ft_toupper ===================================================================
 $> norminette ft_toupper.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part1_functions/ft_toupper/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part1_functions/ft_toupper/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -965,7 +966,7 @@ Diff OK :D
 
 = ft_itoa ======================================================================
 $> norminette ft_itoa.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part2_functions/ft_itoa/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part2_functions/ft_itoa/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1020,7 +1021,7 @@ Diff OK :D
 
 = ft_putchar_fd ================================================================
 $> norminette ft_putchar_fd.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part2_functions/ft_putchar_fd/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part2_functions/ft_putchar_fd/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1060,7 +1061,7 @@ Diff OK :D
 
 = ft_putendl_fd ================================================================
 $> norminette ft_putendl_fd.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part2_functions/ft_putendl_fd/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part2_functions/ft_putendl_fd/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1085,7 +1086,7 @@ Diff OK :D
 
 = ft_putnbr_fd =================================================================
 $> norminette ft_putnbr_fd.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part2_functions/ft_putnbr_fd/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part2_functions/ft_putnbr_fd/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1135,7 +1136,7 @@ Diff OK :D
 
 = ft_putstr_fd =================================================================
 $> norminette ft_putstr_fd.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part2_functions/ft_putstr_fd/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part2_functions/ft_putstr_fd/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1160,7 +1161,7 @@ Diff OK :D
 
 = ft_split =====================================================================
 $> norminette ft_split.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part2_functions/ft_split/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part2_functions/ft_split/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1190,7 +1191,7 @@ Diff OK :D
 
 = ft_strjoin ===================================================================
 $> norminette ft_strjoin.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part2_functions/ft_strjoin/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part2_functions/ft_strjoin/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1215,7 +1216,7 @@ Diff OK :D
 
 = ft_strmapi ===================================================================
 $> norminette ft_strmapi.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part2_functions/ft_strmapi/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part2_functions/ft_strmapi/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1225,7 +1226,7 @@ Diff OK :D
 
 = ft_strtrim ===================================================================
 $> norminette ft_strtrim.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part2_functions/ft_strtrim/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part2_functions/ft_strtrim/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1255,7 +1256,7 @@ Diff OK :D
 
 = ft_substr ====================================================================
 $> norminette ft_substr.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Part2_functions/ft_substr/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Part2_functions/ft_substr/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1282,7 +1283,7 @@ Diff OK :D
 
 = ft_lstadd_back ===============================================================
 $> norminette ft_lstadd_back.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstadd_back/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstadd_back/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1292,7 +1293,7 @@ Diff OK :D
 
 = ft_lstadd_front ==============================================================
 $> norminette ft_lstadd_front.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstadd_front/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstadd_front/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1302,7 +1303,7 @@ Diff OK :D
 
 = ft_lstclear ==================================================================
 $> norminette ft_lstclear.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstclear/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstclear/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1312,7 +1313,7 @@ Diff OK :D
 
 = ft_lstdelone =================================================================
 $> norminette ft_lstdelone.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstdelone/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstdelone/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1322,7 +1323,7 @@ Diff OK :D
 
 = ft_lstiter ===================================================================
 $> norminette ft_lstiter.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstiter/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstiter/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1332,7 +1333,7 @@ Diff OK :D
 
 = ft_lstlast ===================================================================
 $> norminette ft_lstlast.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstlast/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstlast/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1347,7 +1348,7 @@ Diff OK :D
 
 = ft_lstmap ====================================================================
 $> norminette ft_lstmap.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstmap/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstmap/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1357,7 +1358,7 @@ Diff OK :D
 
 = ft_lstnew ====================================================================
 $> norminette ft_lstnew.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstnew/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstnew/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1377,7 +1378,7 @@ Diff OK :D
 
 = ft_lstsize ===================================================================
 $> norminette ft_lstsize.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstsize/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Bonus_functions/ft_lstsize/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
@@ -1397,9 +1398,18 @@ Diff OK :D
 
 = Additional_functions =========================================================
 
+= ft_isspace ===================================================================
+$> norminette ft_isspace.c | grep -E '(Error|Warning)'
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Additional_functions/ft_isspace/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
+
+/home/hyamamot/42tokyo/libft/Libftest/tests/Additional_functions/ft_isspace/main.c:29:19: error: implicit declaration of function 'ft_isspace' is invalid in C99 [-Werror,-Wimplicit-function-declaration]
+                ft_print_result(ft_isspace(start));
+                                ^
+1 error generated.
+
 = ft_striteri ==================================================================
 $> norminette ft_striteri.c | grep -E '(Error|Warning)'
-$> clang -Wextra -Wall -Werror /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tests/Additional_functions/ft_striteri/main.c -L/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir
+$> clang -Wextra -Wall -Werror /home/hyamamot/42tokyo/libft/Libftest/tests/Additional_functions/ft_striteri/main.c -L/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir -lft -I/home/hyamamot/42tokyo/libft/Libftest/tmp_tests_dir
 
 = Test 1 ===================================================
 $> ./user_exe 01
