@@ -14,9 +14,12 @@
 
 void	ft_striteri(char *s, void (*f)(unsigned int, char *))
 {
-	const int	len = ft_strlen(s);
-	int			i;
+	int	len;
+	int	i;
 
+	if (!s)
+		return ;
+	len = ft_strlen(s);
 	i = 0;
 	while (i < len)
 	{

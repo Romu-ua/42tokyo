@@ -73,11 +73,12 @@ int	process_word(char const *s, char c, char **result)
 
 char	**ft_split(char const *s, char c)
 {
-	char		**result;
-	const int	word_count = count_words(s, c);
+	char	**result;
+	int		word_count;
 
 	if (!s)
 		return (NULL);
+	word_count = count_words(s, c);
 	result = (char **)malloc(sizeof(char *) * (word_count + 1));
 	if (!result)
 		return (NULL);

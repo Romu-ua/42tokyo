@@ -12,42 +12,27 @@
 
 #include "libft.h"
 
-char	*malloc_1(void)
-{
-	char	*subs;
-
-	subs = (char *)malloc(1);
-	if (!subs)
-		return (NULL);
-	subs[0] = '\0';
-	return (subs);
-}
-
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
-	size_t			i;
-	const size_t	s_len = ft_strlen(s);
-	char			*subs;
+	size_t	s_len;
+	char	*subs;
 
 	if (!s)
 		return (NULL);
+	s_len = ft_strlen(s);
 	if (start >= s_len)
 	{
-		subs = malloc_1();
+		subs = (char *)malloc(1);
 		if (!subs)
 			return (NULL);
+		subs[0] = '\0';
+		return (subs);
 	}
 	if (len > s_len - start)
 		len = s_len - start;
 	subs = (char *)malloc(sizeof(char) * (len + 1));
 	if (!subs)
 		return (NULL);
-	i = 0;
-	while (i < len)
-	{
-		subs[i] = s[start + i];
-		i++;
-	}
-	subs[i] = '\0';
+	ft_strlcpy(subs, &s[start], len + 1);
 	return (subs);
 }

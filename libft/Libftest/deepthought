@@ -3,7 +3,7 @@ $> hostname; uname -msr
 yamaMacBook-Air.local
 Darwin 24.0.0 arm64
 $> date
-2024年 11月 8日 金曜日 20時11分51秒 JST
+2024年 11月10日 日曜日 10時55分27秒 JST
 $> gcc --version
 Apple clang version 16.0.0 (clang-1600.0.26.3)
 Target: arm64-apple-darwin24.0.0
@@ -69,7 +69,7 @@ cc -Wall -Wextra -Werror -c ft_lstmap.c -o ft_lstmap.o
 ar -rc libft_bonus.a ft_isalpha.o ft_isdigit.o ft_isalnum.o ft_isascii.o ft_isprint.o ft_strlen.o ft_memset.o ft_bzero.o ft_memcpy.o ft_memmove.o ft_strlcpy.o ft_strlcat.o ft_toupper.o ft_tolower.o ft_strchr.o ft_strrchr.o ft_strncmp.o ft_memchr.o ft_memcmp.o ft_strnstr.o ft_atoi.o ft_calloc.o ft_strdup.o ft_substr.o ft_strjoin.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_striteri.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o ft_lstnew.o ft_lstadd_front.o ft_lstsize.o ft_lstlast.o ft_lstadd_back.o ft_lstdelone.o ft_lstclear.o ft_lstiter.o ft_lstmap.o
 
 $> ls -la libft.a
--rw-r--r--  1 yamamototaimu  staff  38464 11  8 20:11 /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir/libft.a
+-rw-r--r--  1 yamamototaimu  staff  38600 11 10 10:55 /Users/yamamototaimu/Documents/42tokyo/libft/Libftest/tmp_tests_dir/libft.a
 
 = Part1_functions ==============================================================
 
