@@ -12,12 +12,8 @@
 
 #include "../includes/ft_printf.h"
 
-int	ft_c_printf(char **ptr, va_list *args)
+int	ft_c_printf(int c)
 {
-	char	c;
-
-	c = va_arg(*args, int);
 	write(1, &c, 1);
-	(*ptr) += 2;
-	return (0);
+	return (1);
 }

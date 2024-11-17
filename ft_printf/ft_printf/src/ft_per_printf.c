@@ -12,12 +12,11 @@
 
 #include "../includes/ft_printf.h"
 
-int	ft_per_printf(char **ptr)
+int	ft_per_printf()
 {
-	char	output;
+	int	output;
 
 	output = '%';
 	write(1, &output, 1);
-	(*ptr) += 2;
-	return (0);
+	return (1);
 }

@@ -48,6 +48,7 @@ int main(void)
 	int result = func(4, 1, 1, 1, 1);
 	printf("Sum is %d\n", result);
 	int result2 = func2(-1, 1, 1, 1, 1, -1);
-	printf("Sum is %d\n", result);
+	printf("Sum is %d\n", result);	
+
 	return (0);
 }

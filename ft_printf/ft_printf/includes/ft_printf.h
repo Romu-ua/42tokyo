@@ -19,18 +19,21 @@
 #include "../libft/libft.h"
 
 int		ft_printf(const char *format, ...);
-int		ft_c_printf(char **ptr, va_list *args);
-int		ft_s_printf(char **ptr, va_list *args);
-int		ft_p_printf(char **ptr, va_list *args);
-int		ft_d_printf(char **ptr, va_list *args);
-int		ft_i_printf(char **ptr, va_list *args);
-int		ft_u_printf(char **ptr, va_list *args);
-int		ft_x_printf(char **ptr, va_list *args);
-int		ft_xX_printf(char **ptr, va_list *args);
-int		ft_per_printf(char **ptr);
+int		ft_c_printf(int c);
+int		ft_s_printf(char *str);
+int		ft_p_printf(void *pointer);
+int		ft_id_printf(int nbr);
+int		ft_u_printf(unsigned int);
+int		ft_x_printf(unsigned int nbr);
+int		ft_xX_printf(unsigned int nbr);
+int		ft_per_printf();
 
 int		ft_nbrlen_hex(int num);
+int		ft_nbrlen_uns(unsigned int n);
+int		ft_nbrlen(int n);
 void	ft_zero(char *output);
 char	*ft_zero_m();
+void	ft_puthexnbr(unsigned int n);
+void	ft_puthexnbr_l(unsigned int n);
 
 #endif

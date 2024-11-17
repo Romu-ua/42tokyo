@@ -13,16 +13,17 @@
 #include "../includes/ft_printf.h"
 #include "../libft/libft.h"
 
-int		ft_s_printf(char **ptr, va_list *args)
+int		ft_s_printf(char *str)
 {
-	char	*str;
+	int	len;
 
-	str = va_arg(*args, char *);
+	if (!str)
+		return(write(1, "(null)", 6));
+	len = ft_strlen(str);
 	while (*str)
 	{
 		write(1, str, 1);
 		str++;
 	}
-	(*ptr) += 2;
-	return (0);
+	return (len);
 }

@@ -12,26 +12,25 @@
 
 #include "../includes/ft_printf.h"
 
-int	ft_elif_format(char **ptr, va_list *args)
+int	ft_ifel_format(char *ptr, va_list args)
 {
-		if (**ptr == '%' && *(*ptr + 1) == 'c')
-			return (ft_c_printf(ptr, args));
-		else if (**ptr == '%' && *(*ptr + 1) == 's')
-			ft_s_printf(ptr, args);
-		else if (**ptr == '%' && *(*ptr + 1) == 'p')
-			ft_p_printf(ptr, args);
-		else if (**ptr == '%' && *(*ptr + 1) == 'd')
-			ft_d_printf(ptr, args);
-		else if (**ptr == '%' && *(*ptr + 1) == 'i')
-			ft_i_printf(ptr, args);
-		else if (**ptr == '%' && *(*ptr + 1) == 'u')
-			ft_u_printf(ptr, args);
-		else if (**ptr == '%' && *(*ptr + 1) == 'x')
-			ft_x_printf(ptr, args);
-		else if (**ptr == '%' && *(*ptr + 1) == 'X')
-			ft_xX_printf(ptr, args);
-		else if (**ptr == '%' && *(*ptr + 1) == '%')
-			ft_per_printf(ptr);
+		if (*ptr == 'c')
+			return (ft_c_printf(va_arg(args, int)));
+		else if (*ptr == 's')
+			return(ft_s_printf(va_arg(args, char *)));
+		else if (*ptr == 'p')
+			return(ft_p_printf(va_arg(args, void *)));
+		else if (*ptr == 'd' || *ptr == 'i')
+			return(ft_id_printf(va_arg(args, int)));
+		else if (*ptr == 'u')
+			return(ft_u_printf(va_arg(args, unsigned int)));
+		else if (*ptr == 'x')
+			return(ft_x_printf(va_arg(args, unsigned int)));
+		else if (*ptr == 'X')
+			return(ft_xX_printf(va_arg(args, unsigned int)));
+		else if (*ptr == '%')
+			return(ft_per_printf());
+		write(1, ptr, 1);
 	return (1);
 }
 
@@ -39,18 +38,23 @@ int	ft_printf(const char *format, ...)
 {
 	va_list args;
 	char	*ptr;
+	ssize_t	len;
 
+	len = 0;
 	va_start(args, format);
 	ptr = (char *)format;
 	while (*ptr)
 	{
-		if (ft_elif_format(&ptr, &args))
+		if(*ptr == '%')
 		{
-			write(1, ptr, 1);
 			ptr++;
+			len += ft_ifel_format(ptr, args);
 		}
+		else
+			len += write(1, ptr, 1);
+		ptr++;
 	}
 	va_end(args);
 
-	return (0);
+	return (len);
 }

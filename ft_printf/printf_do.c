@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <limits.h>
 
 int main(void)
 {
@@ -101,5 +102,40 @@ int main(void)
 
 	// %%の挙動
 	printf("%%\n");
+
+// --------------------------------------------------
+	int	lens = printf("test");
+	printf("%d", len);
+	int	lenss = write(1, "test");
+	printf("%d\n", lenss);
+
+// --------------------------------------------------
+	int hoge = printf("%w\n");
+	printf("%d\n", hoge);
+
+// ------------------------------------------------
+	hoge = printf("%p\n", "42");
+	printf("%d\n", hoge);
+// ----------------------------------------
+	int	hogehoge = printf("%s\n", NULL);
+	printf("%d\n", hogehoge);
+// -----------------------------------------------
+	hogehoge = printf("%p\n", NULL);
+	printf("%d\n", hogehoge);
+// ------------------------------------------------
+	int wlen;
+
+	wlen = write(1, "(null)", 6);
+	printf("%d\n", wlen);
+// --------------------------------------------
+	printf("%p\n", LONG_MIN);
+
+	printf("%p\n", ULONG_MAX);
+
+// --------------------------------------------
+	printf("%x\n", (long)(-42));
+	printf("%x\n", -1);
+	printf("%x\n", NULL);
+
 	return (0);
 }

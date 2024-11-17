@@ -1,5 +1,6 @@
 cc = CC
-CFLAGS = -Wall -Werror -Wextra -Ift_printf/includes
+# CFLAGS = -Wall -Werror -Wextra -Ift_printf/includes
+CFLAGS = -Ift_printf/includes
 
 SRC_DIR = ft_printf/src
 LIBFT_DIR = ft_printf/libft

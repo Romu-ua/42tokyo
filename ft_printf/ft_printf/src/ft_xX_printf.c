@@ -11,35 +11,22 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include <stdio.h>
 
-int	ft_xX_printf(char **ptr, va_list *args)
+int	ft_xX_printf(unsigned int nbr)
 {
-	int			num;
 	int			len;
-	char		*output;
-	const char	*hex = "0123456789ABCDEF";
 
-	num = va_arg(*args, int);
 	len = 0;
-	if (!num)
-		output = ft_zero_m();
+	if (!nbr)
+	{
+		write(1, "0", 1);
+		len = 1;
+	}
 	else
 	{
-		len = ft_nbrlen_hex(num);
-		output = (char *)malloc(sizeof(char) * (len + 3));
-		if (!output)
-			return (0);
-		output[0] = '0';
-		output[1] = 'x';
-		output[2 + len] = '\0';
-		while (len >= 0)
-		{
-			output[2 + len - 1] = hex[num % 16];
-			num /= 16;
-			len--;
-		}
+		len = ft_nbrlen_hex(nbr);
+		ft_puthexnbr_l(nbr);
 	}
-	ft_putstr_fd(output, 1);
-	(*ptr) += 2;
-	return (0);
+	return (len);
 }

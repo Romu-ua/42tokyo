@@ -1,26 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_u_printf.c                                      :+:      :+:    :+:   */
+/*   ft_d_printf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyamamot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 17:05:12 by hyamamot          #+#    #+#             */
-/*   Updated: 2024/11/15 17:05:13 by hyamamot         ###   ########.fr       */
+/*   Created: 2024/11/15 16:41:05 by hyamamot          #+#    #+#             */
+/*   Updated: 2024/11/15 16:41:09 by hyamamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
+#include "../libft/libft.h"
 
-int	ft_u_printf(unsigned int nbr)
+int	ft_id_printf(int nbr)
 {
-	int		len;
-	char	c;
+	int	len;
 
-	len = ft_nbrlen_uns(nbr);
-	if (nbr > 9)
-		ft_u_printf(nbr / 10);
-	c = nbr % 10 + '0';
-	write(1, &c, 1);
+	len = ft_nbrlen(nbr);
+	ft_putnbr_fd(nbr, 1);
 	return (len);
 }

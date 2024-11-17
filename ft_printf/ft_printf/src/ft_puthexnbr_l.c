@@ -1,23 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_d_printf.c                                      :+:      :+:    :+:   */
+/*   ft_puthexnbr_l.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: hyamamot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: hyamamot <ymmthrm15@fuji.waseda.jp>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/15 16:41:05 by hyamamot          #+#    #+#             */
-/*   Updated: 2024/11/15 16:41:09 by hyamamot         ###   ########.fr       */
+/*   Created: 2024/11/17 16:56:05 by hyamamot          #+#    #+#             */
+/*   Updated: 2024/11/17 16:56:06 by hyamamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft_printf.h"
+#include <limits.h>
+#include <unistd.h>
 
-int	ft_d_printf(char **ptr, va_list *args)
+void	ft_puthexnbr_l(unsigned int n)
 {
-	int	output;
+	char	c;
+	const char *hex = "0123456789ABCDEF";
 
-	output = va_arg(*args, int);
-	ft_putnbr_fd(output, 1);
-	(*ptr) += 2;
-	return (0);
+	if (n > 0xf)
+	{
+		ft_puthexnbr_l(n / 16);
+	}
+	c = hex[n % 16];
+	write(1, &c, 1);
+	return ;
 }
