@@ -12,7 +12,7 @@
 
 #include "../includes/ft_printf.h"
 
-int	ft_per_printf()
+int	ft_per_printf(void)
 {
 	int	output;
 

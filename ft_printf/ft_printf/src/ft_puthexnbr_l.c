@@ -10,13 +10,12 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <limits.h>
-#include <unistd.h>
+#include "../includes/ft_printf.h"
 
 void	ft_puthexnbr_l(unsigned int n)
 {
-	char	c;
-	const char *hex = "0123456789ABCDEF";
+	char		c;
+	const char	*hex = "0123456789ABCDEF";
 
 	if (n > 0xf)
 	{

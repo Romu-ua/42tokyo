@@ -11,14 +11,13 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include "../libft/libft.h"
 
-int		ft_s_printf(char *str)
+int	ft_s_printf(char *str)
 {
 	int	len;
 
 	if (!str)
-		return(write(1, "(null)", 6));
+		return (write(1, "(null)", 6));
 	len = ft_strlen(str);
 	while (*str)
 	{

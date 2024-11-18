@@ -24,4 +24,3 @@ int	ft_nbrlen_uns(unsigned int n)
 	}
 	return (len);
 }
-

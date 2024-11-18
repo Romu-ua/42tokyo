@@ -11,11 +11,10 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdio.h>
 
-int	ft_xX_printf(unsigned int nbr)
+int	ft_xx_printf(unsigned int nbr)
 {
-	int			len;
+	int	len;
 
 	len = 0;
 	if (!nbr)

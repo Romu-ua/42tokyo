@@ -11,7 +11,6 @@
 /* ************************************************************************** */
 
 #include "../includes/ft_printf.h"
-#include <stdio.h>
 
 int	ft_x_printf(unsigned int nbr)
 {
