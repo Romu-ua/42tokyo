@@ -4,24 +4,30 @@ FROM ubuntu:22.04
 # 必要な環境変数を設定（対話型プロンプトを無効化）
 ENV DEBIAN_FRONTEND=noninteractive
 
-# manコマンドおよび関連パッケージをインストール
+# 必要なパッケージをインストール
 RUN apt-get update && \
     apt-get install -y \
-    man \
-    manpages \
-    man-db \
-    less && \
+        clang \
+        valgrind \
+        git \
+        make \
+        g++ \
+        ncurses-bin \
+        build-essential \
+        man \
+        manpages \
+        man-db && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
 # 作業ディレクトリを指定
-WORKDIR /app
+WORKDIR /workspace
 
 # ホストのファイルをコンテナにコピー
 COPY . .
 
-# 必要に応じてスクリプトを実行
-RUN chmod +x ./setup.sh && ./setup.sh
+# シェルをBashに設定
+SHELL ["/bin/bash", "-c"]
 
 # エントリーポイント
 CMD ["bash"]

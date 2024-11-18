@@ -16,9 +16,6 @@
 int	ft_x_printf(unsigned int nbr)
 {
 	int			len;
-	char		*output;
-	const char	*hex = "0123456789abcdef";
-	int			i;
 
 	len = 0;
 	if (!nbr)
