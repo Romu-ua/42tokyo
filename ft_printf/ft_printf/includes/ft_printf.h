@@ -29,7 +29,7 @@ int		ft_u_printf(unsigned int nbr);
 int		ft_x_printf(unsigned int nbr);
 int		ft_xx_printf(unsigned int nbr);
 int		ft_per_printf(void);
-int		ft_nbrlen_hex(int num);
+int		ft_nbrlen_hex(unsigned long num);
 int		ft_nbrlen_uns(unsigned int n);
 int		ft_nbrlen(int n);
 void	ft_puthexnbr(unsigned int n);

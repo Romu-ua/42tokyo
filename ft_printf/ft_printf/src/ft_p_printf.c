@@ -41,7 +41,10 @@ int	ft_p_printf(void *pointer)
 		output[0] = '0';
 		output[1] = 'x';
 		cast_ptr = (unsigned long)pointer;
+		printf("%u\n", cast_ptr);
+		printf("%p\n", cast_ptr);
 		len = ft_nbrlen_hex(cast_ptr);
+		printf("%d\n", len);
 		ft_setarray(len, output, hex, cast_ptr);
 		output[2 + len] = '\0';
 	}
