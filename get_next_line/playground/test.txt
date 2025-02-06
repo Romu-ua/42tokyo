@@ -1,0 +1,6 @@
+hello! first line.
+次は２行目です。
+
+3行目は空白です。
+
+final line is 6.

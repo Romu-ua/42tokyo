@@ -1,0 +1,5 @@
+file is open
+first line
+next line
+
+file is over
