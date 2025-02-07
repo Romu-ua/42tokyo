@@ -1,4 +1,4 @@
-file is open
+file
 first line
 next line
 

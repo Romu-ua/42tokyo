@@ -3,12 +3,15 @@
 
 int main()
 {
-	char *input;
-
-	line = (char *)malloc(BUFFER_SIZE);
-	while(line=get_next_line(fd))
+	int fd = open("test.txt", O_RDONLY);
+	while (1)
 	{
-		printf("%s", line);
+		char *test = get_next_line(fd);
+		if (!test)
+			break;
+		printf("%s\n", test);
+		free(test); // mainの方でフリーするよな
 	}
+	close(fd);
 	return (0);
 }

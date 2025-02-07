@@ -4,6 +4,7 @@
 #include <fcntl.h>
 #include <unistd.h>
 #include <string.h>
+#include <stdlib.h>
 
 #ifndef BUFFER_SIZE
 # define BUFFER_SIZE 42
@@ -13,6 +14,8 @@ int	ft_strlen(char *str)
 {
 	int	len;
 
+	if (!str)
+		return (0);
 	len = 0;
 	while(*str++)
 		len++;
@@ -21,7 +24,9 @@ int	ft_strlen(char *str)
 
 void	ft_strcpy(char *new_line, char *str)
 {
-	while (!(*str))
+	if (!str)
+		return;
+	while (*str)
 	{
 		*new_line = *str;
 		new_line++;
@@ -38,12 +43,12 @@ char *ft_strjoin(char *s1, char *s2)
 
 	lens1 = ft_strlen(s1);
 	lens2 = ft_strlen(s2);
-	new_line = (char *)malloc((lens1 + lens2) * sizeof(char));
+	new_line = (char *)malloc((lens1 + lens2 + 1) * sizeof(char));
 	if (!new_line)
 		return (NULL);
-	if (!lens1)
+	if (s1)
 		ft_strcpy(new_line, s1);
-	if (!lens2)
+	if (s2)
 		ft_strcpy(new_line + lens1, s2);
 	free(s1);
 	return (new_line);
@@ -75,10 +80,10 @@ char *get_next_line(int fd)
 		{
 			read_bytes = read(fd, buffer, BUFFER_SIZE);
 			// readはerrorで-1, EOFで0
-			if (buffer <= 0)
+			if (read_bytes <= 0)
 				return (line);
 			// 終端文字をつけないと文字列として処理しずらい
-			buffer[BUFFER_SIZE] = '\0';
+			buffer[read_bytes] = '\0';
 		}
 
 		// bufferの中に値がある時
@@ -89,7 +94,7 @@ char *get_next_line(int fd)
 			// 改行をnull文字に変換する
 			*newline_pos = '\0';
 			line = ft_strjoin(line, buffer);
-			memmove(buffer, newline_pos, strlen(newline_pos + 1));
+			memmove(buffer, newline_pos + 1, strlen(newline_pos + 1));
 			return (line);
 		}
 		// 改行がない時
@@ -104,7 +109,19 @@ char *get_next_line(int fd)
 
 int main()
 {
-	int fd = open("test.txt", O_RDONLY);
-	print_one_line(fd);
-	return (0);
+    int fd = open("test.txt", O_RDONLY);
+    if (fd == -1) {
+        perror("open");
+        return 1;
+    }
+	
+    char *test = get_next_line(fd);
+    if (test)
+        printf("test: %s\n", test);
+    else
+        printf("get_next_line returned NULL\n");
+
+    free(test);
+    close(fd);
+    return 0;
 }
