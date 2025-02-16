@@ -122,22 +122,22 @@ Node* searchNode(Node** head, int key)
 	return (NULL);
 }
 
-// void AddIndex(Node** sorted)
-// {
-// 	int index = 0;
-// 	Node *tmpNode;
+void AddIndex(Node** sorted)
+{
+	int index = 0;
+	Node *tmpNode;
 
-// 	if (!*sorted)
-// 		return ;
-// 	tmpNode = *sorted;
-// 	while (tmpNode->pNextNode != *sorted)
-// 	{
-// 		tmpNode->index = index;
-// 		index++;
-// 		tmpNode = tmpNode->pNextNode;
-// 	}
-// 	tmpNode->index = lengthList(sorted) - 1;
-// }
+	if (!*sorted)
+		return ;
+	tmpNode = *sorted;
+	while (tmpNode->pNextNode != *sorted)
+	{
+		tmpNode->index = index;
+		index++;
+		tmpNode = tmpNode->pNextNode;
+	}
+	tmpNode->index = lengthList(sorted) - 1;
+}
 
 void AddIndexHead(Node** head, Node** sorted)
 {
@@ -147,6 +147,7 @@ void AddIndexHead(Node** head, Node** sorted)
 
 	sorceNode = *sorted;
 	len = lengthList(head);
+	i = 0;
 	while (i < len)
 	{
 		searchedNode = searchNode(head, sorceNode->data);
@@ -172,14 +173,14 @@ int main()
 	SortList(&copyhead);
 	displayForward(&copyhead);
 
-	// AddIndex(&copyhead);
-	// i = 9;
-	// while (i >= 0)
-	// {
-	// 	printf("%d ", copyhead->index);
-	// 	copyhead = copyhead->pNextNode;
-	// 	i--;
-	// }
+	AddIndex(&copyhead);
+	i = 9;
+	while (i >= 0)
+	{
+		printf("%d ", copyhead->index);
+		copyhead = copyhead->pNextNode;
+		i--;
+	}
 
 	printf("\n");
 	AddIndexHead(&head, &copyhead);
@@ -191,7 +192,6 @@ int main()
 		tmpNode = tmpNode->pNextNode;
 		i--;
 	}
-
 
 	return (0);
 }
