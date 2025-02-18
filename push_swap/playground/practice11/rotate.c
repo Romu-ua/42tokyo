@@ -12,7 +12,7 @@
 
 #include "main.h"
 
-void	rotateA(t_node** stack, t_ops *ops)
+void	rotateA(t_node** stack, t_ops **ops)
 {
 	if (!*stack || (*stack)->pprevnode == *stack)
 		return ;
@@ -20,7 +20,7 @@ void	rotateA(t_node** stack, t_ops *ops)
 	if (ops)
 		record_op(ops, ra);
 }
-void	rotateB(t_node** stack, t_ops *ops)
+void	rotateB(t_node** stack, t_ops **ops)
 {
 	if (!*stack || (*stack)->pprevnode == *stack)
 		return ;

@@ -16,7 +16,7 @@ int compare(const void *a, const void *b) {
     return (*(int *)a - *(int *)b);
 }
 
-void	half_push_B(t_node **A, t_node **B, t_ops *ops)
+void	half_push_B(t_node **A, t_node **B, t_ops **ops)
 {
 	int		len;
 	int		i;
@@ -38,7 +38,6 @@ void	half_push_B(t_node **A, t_node **B, t_ops *ops)
 	}
 	qsort(indices, len, sizeof(int), compare);
 	threshold = indices[len / 2];
-	// printf("threshold is %d\n", threshold);
 	free(indices);
 	i = 0;
 	while (i < len)
@@ -54,7 +53,7 @@ void	half_push_B(t_node **A, t_node **B, t_ops *ops)
 	}
 }
 
-void	half_push_A(t_node **B, t_node **A, t_ops *ops)
+void	half_push_A(t_node **B, t_node **A, t_ops **ops)
 {
 	int		len;
 	int		i;

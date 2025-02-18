@@ -12,7 +12,7 @@
 
 #include "main.h"
 
-void	sort_n3(t_node **B, t_ops *ops)
+void	sort_n3(t_node **B, t_ops **ops)
 {
 	if (only_sb(B))
 	{
@@ -49,7 +49,7 @@ void	sort_n3(t_node **B, t_ops *ops)
 	return ;
 }
 
-void	sort(t_node **B, t_ops *ops)
+void	sort(t_node **B, t_ops **ops)
 {
 	int	len;
 
@@ -65,7 +65,7 @@ void	sort(t_node **B, t_ops *ops)
 		sort_n3(B, ops);
 }
 
-void	fix(t_node **A, t_node **B, t_ops *ops)
+void	fix(t_node **A, t_node **B, t_ops **ops)
 {
 	int	len;
 
@@ -98,7 +98,7 @@ int	get_elm_num(t_node **A)
 	{
 		count++;
 		if (tmp->index > max)
-			max = tmp->pnextnode->index;
+			max = tmp->index;
 		tmp = tmp->pnextnode;
 	}
 	return (count);
@@ -110,6 +110,7 @@ int	check_sorted(t_node **A)
 	t_node *tmp;
 
 	tmp = *A;
+	// start　nodeを見つける
 	while (tmp->pnextnode != *A)
 	{
 		if (tmp->index == 0)
@@ -132,7 +133,7 @@ int	check_sorted(t_node **A)
 	return (1);
 }
 
-void	operation(t_node **A, t_node **B, t_ops *ops)
+void	operation(t_node **A, t_node **B, t_ops **ops)
 {
 	int	elm_num;
 
@@ -148,8 +149,13 @@ void	operation(t_node **A, t_node **B, t_ops *ops)
 		}
 		sort(B, ops);
 		fix(A, B, ops);
-
+		
+		// printf("after fix A : ");
+		displayForward(A);
+		// printf("Before displayForward: A = %p, A->pnextnode = %p\n", (void*)*A, (void*)(*A ? (*A)->pnextnode : NULL));
 		// displayForward(A);
+		// printf("After displayForward: A = %p, A->pnextnode = %p\n", (void*)*A, (void*)(*A ? (*A)->pnextnode : NULL));
+
 
 		if (check_sorted(A))
 		{

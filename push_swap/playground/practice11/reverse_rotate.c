@@ -12,7 +12,7 @@
 
 # include "main.h"
 
-void	reverse_rotateA(t_node** stack, t_ops *ops)
+void	reverse_rotateA(t_node** stack, t_ops **ops)
 {
 	if (!*stack || (*stack)->pnextnode == *stack)
 		return ;
@@ -21,7 +21,7 @@ void	reverse_rotateA(t_node** stack, t_ops *ops)
 		record_op(ops, rra);
 }
 
-void	reverse_rotateB(t_node** stack, t_ops *ops)
+void	reverse_rotateB(t_node** stack, t_ops **ops)
 {
 	if (!*stack || (*stack)->pnextnode == *stack)
 		return ;

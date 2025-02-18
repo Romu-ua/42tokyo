@@ -12,64 +12,81 @@
 
 #include "main.h"
 
-void	record_op(t_ops *ops, t_op op)
+t_ops *create_newop(t_op op)
 {
-	t_op_list	*new_node;
-	t_op_list	*tail;
+	t_ops *new_op = (t_ops *)malloc(sizeof(t_ops));
+	if (!new_op)
+		return (NULL);
+	new_op->op = op;
+	new_op->pnext = NULL;
+	new_op->pprev = NULL;
+	return (new_op);
+}
 
-	if (!ops)
+void	record_op(t_ops **ops, t_op op)
+{
+	t_ops	*new_op;
+	t_ops	*last;
+
+	new_op = create_newop(op);
+	if (!new_op)
 		return ;
-	new_node = (t_op_list *)malloc(sizeof(t_op_list));
-	if (!new_node)
-		return ;
-	new_node->op = op;
-	if (!ops->op_list)
+	if (!*ops)
 	{
-		ops->op_list = new_node;
-		new_node->pprev = new_node;
-		new_node->pnext = new_node;
+		*ops = new_op;
+		new_op->pnext = new_op;
+		new_op->pprev = new_op;
 	}
 	else
 	{
-		tail = ops->op_list->pprev;
+		last = (*ops)->pprev;
 
-		// 順番合ってる？
-		tail->pnext = new_node;
-		ops->op_list->pprev = new_node;
-		new_node->pnext = ops->op_list;
-		new_node->pprev = tail;
+		new_op->pnext = *ops;
+		new_op->pprev = last;
+		last->pnext = new_op;
+		(*ops)->pprev = new_op;
+		*ops = new_op;
 	}
-	ops->size++;
-	// printf("Recorded op at index : %d\n", ops->size);
 }
 
-void	print_ops(t_ops *ops)
+void	print(t_op op)
 {
-	t_op_list	*cur;
-	int			i;
+	if (op == 0)
+		printf("sa\n");
+	else if (op == 1)
+		printf("sb\n");
+	else if (op == 2)
+		printf("pa\n");
+	else if (op == 3)
+		printf("pb\n");
+	else if (op == 4)
+		printf("ra\n");
+	else if (op == 5)
+		printf("rb\n");
+	else if (op == 6)
+		printf("rra\n");
+	else if (op == 7)
+		printf("rrb\n");
+}
 
-	if (!ops || !ops->op_list || ops->size == 0)
+void	print_ops(t_ops **ops)
+{
+	t_ops	*tmp;
+
+	if (!*ops)
 		return ;
-	cur = ops->op_list;
-	while (i < ops->size)
+	tmp = *ops;
+	if ((*ops)->pprev == *ops)
 	{
-		if (cur->op == 0)
-			printf("sa\n");
-		else if (cur->op == 1)
-			printf("sb\n");
-		else if (cur->op == 2)
-			printf("pa\n");
-		else if (cur->op == 3)
-			printf("pb\n");
-		else if (cur->op == 4)
-			printf("ra\n");
-		else if (cur->op == 5)
-			printf("rb\n");
-		else if (cur->op == 6)
-			printf("rra\n");
-		else if (cur->op == 7)
-			printf("rrb\n");
-		cur = cur->pnext;
-		i++;
+		print((*ops)->op);
+		return ;
+	}
+	tmp = tmp->pprev;
+	while (1)
+	{
+		print(tmp->op);
+		if (tmp == *ops)
+			break;
+		tmp = tmp->pprev;
 	}
 }
