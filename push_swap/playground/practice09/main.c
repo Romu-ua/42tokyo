@@ -314,9 +314,11 @@ int main(int argc, char **argv)
 		i--;
 	}
 	SortList(&sorted);
-	// displayForward(&sorted); ソートはされている
+	printf("sorted: ");
+	displayForward(&sorted);
 	AddIndex(&A, &sorted);
 	i = 0;
+	printf("index: ");
 	while (i < argc - 1)
 	{
 		printf("%d <-> ", A->index);
