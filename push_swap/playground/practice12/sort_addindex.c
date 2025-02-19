@@ -12,7 +12,7 @@
 
 #include "main.h"
 
-void	AddIndex(t_node **head, t_node **sorted)
+void	add_index(t_node **head, t_node **sorted)
 {
 	t_node	*searchednode;
 	t_node	*sourcenode;
@@ -20,18 +20,18 @@ void	AddIndex(t_node **head, t_node **sorted)
 	int		len;
 
 	sourcenode = *sorted;
-	len = lengthList(head);
+	len = length_list(head);
 	i = 0;
 	while (i < len)
 	{
-		searchednode = searchNode(head, sourcenode->data);
+		searchednode = search_node(head, sourcenode->data);
 		searchednode->index = i;
 		sourcenode = sourcenode->pnextnode;
 		i++;
 	}
 }
 
-void	SortList(t_node **head)
+void	sort_list(t_node **head)
 {
 	int		i;
 	int		j;
@@ -42,7 +42,7 @@ void	SortList(t_node **head)
 	if (!*head)
 		return ;
 	i = 0;
-	len = lengthList(head);
+	len = length_list(head);
 	while (i++ < len)
 	{
 		j = 0;

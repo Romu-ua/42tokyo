@@ -15,8 +15,8 @@
 int	only_sb(t_node **B)
 {
 	swap_b(B, NULL);
-	if ((*B)->index < (*B)->pnextnode->index &&
-	(*B)->pnextnode->index < (*B)->pprevnode->index)
+	if ((*B)->index < (*B)->pnextnode->index
+		&& (*B)->pnextnode->index < (*B)->pprevnode->index)
 		return (1);
 	swap_b(B, NULL);
 	return (0);
@@ -25,43 +25,43 @@ int	only_sb(t_node **B)
 int	sb_rrb(t_node **B)
 {
 	swap_b(B, NULL);
-	reverse_rotateB(B, NULL);
-	if ((*B)->index < (*B)->pnextnode->index &&
-	(*B)->pnextnode->index < (*B)->pprevnode->index)
+	reverse_rotate_b(B, NULL);
+	if ((*B)->index < (*B)->pnextnode->index
+		&& (*B)->pnextnode->index < (*B)->pprevnode->index)
 		return (1);
-	rotateB(B, NULL);
+	rotate_b(B, NULL);
 	swap_b(B, NULL);
 	return (0);
 }
 
-int only_rb(t_node **B)
+int	only_rb(t_node **B)
 {
-	rotateB(B, NULL);
-	if ((*B)->index < (*B)->pnextnode->index &&
-	(*B)->pnextnode->index < (*B)->pprevnode->index)
+	rotate_b(B, NULL);
+	if ((*B)->index < (*B)->pnextnode->index
+		&& (*B)->pnextnode->index < (*B)->pprevnode->index)
 		return (1);
-	reverse_rotateB(B, NULL);
+	reverse_rotate_b(B, NULL);
 	return (0);
 }
 
 int	sb_rb(t_node **B)
 {
 	swap_b(B, NULL);
-	rotateB(B, NULL);
-	if ((*B)->index < (*B)->pnextnode->index &&
-	(*B)->pnextnode->index < (*B)->pprevnode->index)
+	rotate_b(B, NULL);
+	if ((*B)->index < (*B)->pnextnode->index
+		&& (*B)->pnextnode->index < (*B)->pprevnode->index)
 		return (1);
-	reverse_rotateB(B, NULL);
+	reverse_rotate_b(B, NULL);
 	swap_b(B, NULL);
 	return (0);
 }
 
 int	only_rrb(t_node **B)
 {
-	reverse_rotateB(B, NULL);
-	if ((*B)->index < (*B)->pnextnode->index &&
-	(*B)->pnextnode->index < (*B)->pprevnode->index)
+	reverse_rotate_b(B, NULL);
+	if ((*B)->index < (*B)->pnextnode->index
+		&& (*B)->pnextnode->index < (*B)->pprevnode->index)
 		return (1);
-	rotateB(B, NULL);
+	rotate_b(B, NULL);
 	return (0);
 }

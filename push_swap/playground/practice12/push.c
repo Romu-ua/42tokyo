@@ -27,8 +27,6 @@ void	remove_list(t_node **src)
 void	push_a(t_node **src, t_node **dest, t_ops **ops)
 {
 	t_node	*topsrc;
-	t_node	*desthead;
-	t_node	*desttail;
 
 	if (!*src)
 		return ;
@@ -42,12 +40,10 @@ void	push_a(t_node **src, t_node **dest, t_ops **ops)
 	}
 	else
 	{
-		desthead = *dest;
-		desttail = (*dest)->pprevnode;
-		topsrc->pnextnode = desthead;
-		topsrc->pprevnode = desttail;
-		desthead->pprevnode = topsrc;
-		desttail->pnextnode = topsrc;
+		topsrc->pnextnode = *dest;
+		topsrc->pprevnode = (*dest)->pprevnode;
+		(*dest)->pprevnode->pnextnode = topsrc;
+		(*dest)->pprevnode = topsrc;
 		*dest = topsrc;
 	}
 	if (ops)
@@ -57,8 +53,6 @@ void	push_a(t_node **src, t_node **dest, t_ops **ops)
 void	push_b(t_node **src, t_node **dest, t_ops **ops)
 {
 	t_node	*topsrc;
-	t_node	*desthead;
-	t_node	*desttail;
 
 	if (!*src)
 		return ;
@@ -72,15 +66,12 @@ void	push_b(t_node **src, t_node **dest, t_ops **ops)
 	}
 	else
 	{
-		desthead = *dest;
-		desttail = (*dest)->pprevnode;
-		topsrc->pnextnode = desthead;
-		topsrc->pprevnode = desttail;
-		desthead->pprevnode = topsrc;
-		desttail->pnextnode = topsrc;
+		topsrc->pnextnode = *dest;
+		topsrc->pprevnode = (*dest)->pprevnode;
+		(*dest)->pprevnode->pnextnode = topsrc;
+		(*dest)->pprevnode = topsrc;
 		*dest = topsrc;
 	}
 	if (ops)
 		record_op(ops, pb);
-
 }

@@ -12,9 +12,11 @@
 
 #include "main.h"
 
-t_ops *create_newop(t_op op)
+t_ops	*create_newop(t_op op)
 {
-	t_ops *new_op = (t_ops *)malloc(sizeof(t_ops));
+	t_ops	*new_op;
+
+	new_op = (t_ops *)malloc(sizeof(t_ops));
 	if (!new_op)
 		return (NULL);
 	new_op->op = op;
@@ -40,7 +42,6 @@ void	record_op(t_ops **ops, t_op op)
 	else
 	{
 		last = (*ops)->pprev;
-
 		new_op->pnext = *ops;
 		new_op->pprev = last;
 		last->pnext = new_op;
@@ -86,7 +87,7 @@ void	print_ops(t_ops **ops)
 	{
 		print(tmp->op);
 		if (tmp == *ops)
-			break;
+			break ;
 		tmp = tmp->pprev;
 	}
 }

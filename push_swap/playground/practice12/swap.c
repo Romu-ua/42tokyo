@@ -12,7 +12,7 @@
 
 #include "main.h"
 
-void	swap_a(t_node** stack, t_ops **ops)
+void	swap_a(t_node **stack, t_ops **ops)
 {
 	int	tmpdata;
 	int	tmpindex;
@@ -25,12 +25,11 @@ void	swap_a(t_node** stack, t_ops **ops)
 	(*stack)->index = (*stack)->pnextnode->index;
 	(*stack)->pnextnode->data = tmpdata;
 	(*stack)->pnextnode->index = tmpindex;
-
 	if (ops)
 		record_op(ops, sb);
 }
 
-void	swap_b(t_node** stack, t_ops **ops)
+void	swap_b(t_node **stack, t_ops **ops)
 {
 	int	tmpdata;
 	int	tmpindex;
@@ -43,7 +42,6 @@ void	swap_b(t_node** stack, t_ops **ops)
 	(*stack)->index = (*stack)->pnextnode->index;
 	(*stack)->pnextnode->data = tmpdata;
 	(*stack)->pnextnode->index = tmpindex;
-	if (ops)	
+	if (ops)
 		record_op(ops, sb);
-
 }

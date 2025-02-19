@@ -15,37 +15,21 @@
 void	sort_n3(t_node **B, t_ops **ops)
 {
 	if (only_sb(B))
-	{
-		// printf("case 1 only_sb\n");
 		record_op(ops, sb);
-		return ;
-	}
 	else if (sb_rrb(B))
 	{
-		// printf("case 2 sa_rra\n");
 		record_op(ops, sb);
 		record_op(ops, rrb);
-		return ;
 	}
 	else if (only_rb(B))
-	{
-		// printf("case 3 only_ra\n");
 		record_op(ops, rb);
-		return ;
-	}
 	else if (sb_rb(B))
 	{
-		// printf("case 4 sa_ra\n");
 		record_op(ops, sb);
 		record_op(ops, rb);
-		return ;
 	}
 	else if (only_rrb(B))
-	{
-		// printf("case 5 only_rra");
 		record_op(ops, rrb);
-		return ;
-	}
 	return ;
 }
 
@@ -53,7 +37,7 @@ void	sort(t_node **B, t_ops **ops)
 {
 	int	len;
 
-	len = lengthList(B);
+	len = length_list(B);
 	if (len == 1)
 		return ;
 	else if (len == 2)
@@ -65,20 +49,6 @@ void	sort(t_node **B, t_ops **ops)
 		sort_n3(B, ops);
 }
 
-void	fix(t_node **A, t_node **B, t_ops **ops)
-{
-	int	len;
-
-	len = lengthList(B);
-	while (len)
-	{
-		push_a(B, A, ops);
-		rotateA(A, ops);
-		len--;
-	}
-}
-
-// すでに昇順にソートされていると機能しない
 int	get_elm_num(t_node **A)
 {
 	int		max;
@@ -92,8 +62,6 @@ int	get_elm_num(t_node **A)
 	min = (*A)->pprevnode->index + 1;
 	count = 0;
 	tmp = *A;
-
-	// printf("min : %d\n", min);
 	while (max - min + 1 != count)
 	{
 		count++;
@@ -106,22 +74,20 @@ int	get_elm_num(t_node **A)
 
 int	check_sorted(t_node **A)
 {
-	t_node *start;
-	t_node *tmp;
+	t_node	*start;
+	t_node	*tmp;
 
 	tmp = *A;
 	start = NULL;
-	// start nodeを見つける
 	while (tmp->pnextnode != *A)
 	{
 		if (tmp->index == 0)
 		{
 			start = tmp;
-			break;
+			break ;
 		}
 		tmp = tmp->pnextnode;
 	}
-
 	if (!start)
 		return (0);
 	tmp = start;
@@ -142,39 +108,21 @@ void	operation(t_node **A, t_node **B, t_ops **ops)
 	{
 		while (1)
 		{
-			if (lengthList(B) <= 3)
-				break;
-			half_push_A(B, A, ops);
-			// displayForward(A);
-			// displayForward(B);
+			if (length_list(B) <= 3)
+				break ;
+			half_push_a(B, A, ops);
 		}
 		sort(B, ops);
 		fix(A, B, ops);
-
-		// printf("after fix A : ");
-		// displayForward(A);
-		// printf("Before displayForward: A = %p, A->pnextnode = %p\n", (void*)*A, (void*)(*A ? (*A)->pnextnode : NULL));
-		// displayForward(A);
-		// printf("After displayForward: A = %p, A->pnextnode = %p\n", (void*)*A, (void*)(*A ? (*A)->pnextnode : NULL));
-
-
 		if (check_sorted(A))
-		{
-			// printf("finish sort!!\n");
-			break;
-		}
+			break ;
 		elm_num = get_elm_num(A);
-		// printf("elm_num is %d\n", elm_num);
 		if (elm_num == 0)
-			break;
+			break ;
 		while (elm_num > 0)
 		{
 			push_b(A, B, ops);
-			// printf("pa\n");
 			elm_num--;
 		}
-		// displayForward(A);
-		// displayForward(B);
 	}
-
 }

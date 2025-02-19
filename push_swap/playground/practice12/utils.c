@@ -1,69 +1,68 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: hyamamot <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/19 16:15:42 by hyamamot          #+#    #+#             */
+/*   Updated: 2025/02/19 16:15:43 by hyamamot         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "main.h"
 
-int	lengthList(t_node **stack)
+t_node	*create_node(int data)
 {
-	t_node	*tmpNode;
-	int		len;
+	t_node	*new_node;
 
-	if (!stack || !*stack)
-		return (0);
-	tmpNode = *stack;
-	len = 1;
-	while (tmpNode->pnextnode != *stack)
-	{
-		len++;
-		tmpNode = tmpNode->pnextnode;
-	}
-	return (len);
-}
-
-t_node* createNode(int data)
-{
-	t_node* newNode = (t_node *)malloc(sizeof(t_node));
-	if (!newNode)
+	new_node = (t_node *)malloc(sizeof(t_node));
+	if (!new_node)
 		return (NULL);
-	newNode->data = data;
-	newNode->index = -1;
-	newNode->pnextnode = NULL;
-	newNode->pprevnode = NULL;
-	return (newNode);
+	new_node->data = data;
+	new_node->index = -1;
+	new_node->pnextnode = NULL;
+	new_node->pprevnode = NULL;
+	return (new_node);
 }
 
-void insertAddHead(t_node** head, int data)
+void	insert_add_head(t_node **head, int data)
 {
-	t_node* newNode;
+	t_node	*new_node;
 
-	newNode = createNode(data);
-	if (!newNode)
+	new_node = create_node(data);
+	if (!new_node)
 		return ;
 	if (!(*head))
 	{
-		*head = newNode;
-		newNode->pnextnode = newNode;
-		newNode->pprevnode = newNode;
+		*head = new_node;
+		new_node->pnextnode = new_node;
+		new_node->pprevnode = new_node;
 	}
 	else
 	{
-		newNode->pnextnode = *head;
-		newNode->pprevnode = (*head)->pprevnode;
-		(*head)->pprevnode->pnextnode = newNode;
-		(*head)->pprevnode = newNode;
-		*head = newNode;
+		new_node->pnextnode = *head;
+		new_node->pprevnode = (*head)->pprevnode;
+		(*head)->pprevnode->pnextnode = new_node;
+		(*head)->pprevnode = new_node;
+		*head = new_node;
 	}
 }
 
-t_node* searchNode(t_node** head, int key)
+t_node	*search_node(t_node **head, int key)
 {
+	t_node	*tmp_node;
+
 	if (!*head)
 		return (NULL);
-	t_node *tmpNode = *head;
-	while (tmpNode->pnextnode != *head)
+	tmp_node = *head;
+	while (tmp_node->pnextnode != *head)
 	{
-		if (tmpNode->data == key)
-			return (tmpNode);
-		tmpNode = tmpNode->pnextnode;
+		if (tmp_node->data == key)
+			return (tmp_node);
+		tmp_node = tmp_node->pnextnode;
 	}
-	if (tmpNode->data == key)
-		return (tmpNode);
+	if (tmp_node->data == key)
+		return (tmp_node);
 	return (NULL);
 }
