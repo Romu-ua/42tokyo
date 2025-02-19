@@ -90,12 +90,14 @@ void	free_node_all(t_node **stack)
 	head = *stack;
 	tmp = head;
 	if (!stack || !*stack)
+	{
+		printf("stack is NULL");
 		return ;
+	}	
 	while (1)
 	{
 		next = tmp->pnextnode;
 		free(tmp);
-		printf("free!\n");
 		if (next == head)
 			break;
 		tmp = next;
@@ -118,13 +120,13 @@ void	free_ops_all(t_ops **ops)
 	{
 		next = tmp->pnext;
 		free(tmp);
-		printf("free!\n");
 		if (next == head)
 			break;
 		tmp = next;
 	}
 	*ops = NULL;
 }
+
 
 int main(int argc, char **argv)
 {
@@ -139,6 +141,7 @@ int main(int argc, char **argv)
 	B = NULL;
 	sorted = NULL;
 	ops = NULL;
+
 
 	while (argc - 1)
 	{
@@ -174,6 +177,5 @@ int main(int argc, char **argv)
 	free_node_all(&A);
 	free_node_all(&sorted);
 	free_ops_all(&ops);
-
 	return (0);
 }

@@ -80,4 +80,7 @@ int		only_rrb(t_node **B);
 
 int	op_lengthList(t_ops **ops);
 
+void	free_ops_all(t_ops **ops);
+void	free_node_all(t_node **stack);
+
 #endif
