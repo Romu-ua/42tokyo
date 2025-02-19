@@ -1,10 +1,12 @@
 import random
 
-# 生成する数の個数
-num_count = 20
+def generate_unique_sequence(int_max, count=100):
+    if count > int_max:
+        raise ValueError("count must be less than or equal to int_max")
 
-# 1〜100の範囲でランダムな数を生成
-random_numbers = [str(random.randint(1, 100)) for _ in range(num_count)]
+    numbers = random.sample(range(1, int_max + 1), count)
+    return " ".join(map(str, numbers))
 
-# 空白区切りで出力
-print(" ".join(random_numbers))
+# 使用例
+int_max = 2147483647  # 任意の最大値を指定
+print(generate_unique_sequence(int_max))

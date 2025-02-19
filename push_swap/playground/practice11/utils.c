@@ -5,7 +5,7 @@ int	lengthList(t_node **stack)
 	t_node	*tmpNode;
 	int		len;
 
-	if (!*stack)
+	if (!stack || !*stack)
 		return (0);
 	tmpNode = *stack;
 	len = 1;

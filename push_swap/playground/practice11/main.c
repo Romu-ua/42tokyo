@@ -10,6 +10,9 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+// nが小さいときは動作するが、nが１００程度になると無限ループする。
+// おそらくget_elmが１とかなのがよくない。
+
 #include "main.h"
 
 void displayForward(t_node** head)
@@ -53,7 +56,7 @@ void	final_fix(t_node **A, t_ops **ops)
 	}
 	else
 	{
-		while (len - cnt)
+		while (len - cnt - 1)
 		{
 			reverse_rotateA(A, ops);
 			cnt++;
@@ -115,7 +118,7 @@ int main(int argc, char **argv)
 
 	operation(&A, &B, &ops);
 	final_fix(&A, &ops);
-	displayForward(&A);
+	// displayForward(&A);
 	print_ops(&ops);
 	// if (!ops)
 	// 	printf("ops is NULL");

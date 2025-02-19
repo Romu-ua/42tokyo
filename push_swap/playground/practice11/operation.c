@@ -110,7 +110,8 @@ int	check_sorted(t_node **A)
 	t_node *tmp;
 
 	tmp = *A;
-	// start　nodeを見つける
+	start = NULL;
+	// start nodeを見つける
 	while (tmp->pnextnode != *A)
 	{
 		if (tmp->index == 0)
@@ -144,14 +145,14 @@ void	operation(t_node **A, t_node **B, t_ops **ops)
 			if (lengthList(B) <= 3)
 				break;
 			half_push_A(B, A, ops);
-			displayForward(A);
-			displayForward(B);
+			// displayForward(A);
+			// displayForward(B);
 		}
 		sort(B, ops);
 		fix(A, B, ops);
-		
+
 		// printf("after fix A : ");
-		displayForward(A);
+		// displayForward(A);
 		// printf("Before displayForward: A = %p, A->pnextnode = %p\n", (void*)*A, (void*)(*A ? (*A)->pnextnode : NULL));
 		// displayForward(A);
 		// printf("After displayForward: A = %p, A->pnextnode = %p\n", (void*)*A, (void*)(*A ? (*A)->pnextnode : NULL));
@@ -159,11 +160,13 @@ void	operation(t_node **A, t_node **B, t_ops **ops)
 
 		if (check_sorted(A))
 		{
-			printf("finish sort!!\n");
+			// printf("finish sort!!\n");
 			break;
 		}
 		elm_num = get_elm_num(A);
-		printf("elm_num is %d\n", elm_num);
+		// printf("elm_num is %d\n", elm_num);
+		if (elm_num == 0)
+			break;
 		while (elm_num > 0)
 		{
 			push_b(A, B, ops);
