@@ -94,7 +94,7 @@ int	get_elm_num(t_node **A)
 	tmp = *A;
 
 	// printf("min : %d\n", min);
-	while (max - min != count)
+	while (max - min + 1 != count)
 	{
 		count++;
 		if (tmp->index > max)
@@ -159,12 +159,12 @@ void	operation(t_node **A, t_node **B, t_ops **ops)
 
 		if (check_sorted(A))
 		{
-			// printf("finish sort!!\n");
+			printf("finish sort!!\n");
 			break;
 		}
 		elm_num = get_elm_num(A);
-		// printf("elm_num is %d\n", elm_num);
-		while (elm_num >= 0)
+		printf("elm_num is %d\n", elm_num);
+		while (elm_num > 0)
 		{
 			push_b(A, B, ops);
 			// printf("pa\n");

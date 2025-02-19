@@ -115,7 +115,7 @@ int main(int argc, char **argv)
 
 	operation(&A, &B, &ops);
 	final_fix(&A, &ops);
-	// displayForward(&A);
+	displayForward(&A);
 	print_ops(&ops);
 	// if (!ops)
 	// 	printf("ops is NULL");
