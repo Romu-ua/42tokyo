@@ -33,12 +33,15 @@ void	remove_op(t_ops **ops)
 
 void optimizer(t_ops **ops)
 {
-    t_ops *curr = *ops;
-    while (curr && curr->pnext)
-    {
-        t_ops *next = curr->pnext;
+    t_ops   *curr;
+    t_ops   *next;
 
-        // 逆操作の削除
+    curr = *ops;
+    while (1)
+    {
+        next = curr->pnext;
+        if (next == *ops)
+            break ;
         if ((curr->op == pa && next->op == pb) ||
             (curr->op == pb && next->op == pa) ||
             (curr->op == ra && next->op == rra) ||
@@ -50,17 +53,15 @@ void optimizer(t_ops **ops)
         {
             remove_op(&curr);
             remove_op(&next);
-            curr = *ops;  // 最適化が発生したので、リストの先頭からやり直す
+            curr = *ops;
             continue;
         }
-
-        // 連結可能な操作の圧縮
         if ((curr->op == ra && next->op == rb) ||
             (curr->op == rb && next->op == ra))
         {
             curr->op = rr;
             remove_op(&next);
-            curr = *ops;  // 再スキャン
+            curr = *ops;
             continue;
         }
         if ((curr->op == rra && next->op == rrb) ||

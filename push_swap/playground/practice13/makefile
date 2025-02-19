@@ -1,8 +1,8 @@
-CC = CC
+CC = gcc
 
 CFLAGS = -Wall -Werror -Wextra
 SOURCES = case.c half_push.c main.c operation.c push.c record_op.c reverse_rotate.c \
-			rotate.c sort_addindex.c swap.c utils.c length_list.c fix.c optimizer.c
+			rotate.c sort_addindex.c swap.c utils.c length_list.c fix.c optimizer.c ft_atoi.c
 OBJECTS = $(SOURCES:.c=.o)
 TARGET = push_swap
 

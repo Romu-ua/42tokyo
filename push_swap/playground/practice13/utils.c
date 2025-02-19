@@ -30,6 +30,7 @@ void	insert_add_head(t_node **head, int data)
 {
 	t_node	*new_node;
 
+
 	new_node = create_node(data);
 	if (!new_node)
 		return ;

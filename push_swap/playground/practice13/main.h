@@ -82,5 +82,6 @@ int		op_length_list(t_ops **ops);
 void	free_ops_all(t_ops **ops);
 void	free_node_all(t_node **stack);
 void	optimizer(t_ops **ops);
+int		ft_atol(const char *nptr);
 
 #endif

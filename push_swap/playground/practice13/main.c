@@ -77,17 +77,17 @@ int	main(int argc, char **argv)
 	b = NULL;
 	sorted = NULL;
 	ops = NULL;
-	while (argc - 1)
+	if (check_input(argv, argc))
+		printf("Error\n");
+	while (argc-- > 1)
 	{
-		insert_add_head(&a, atoi(argv[argc - 1]));
-		insert_add_head(&sorted, atoi(argv[argc - 1]));
-		argc--;
+		insert_add_head(&a, ft_atoi(argv[argc - 1]));
+		insert_add_head(&sorted, ft_atoi(argv[argc - 1]));
 	}
 	sort_list(&sorted);
 	add_index(&a, &sorted);
 	half_push_b(&a, &b, &ops);
 	operation(&a, &b, &ops);
-	optimizer(&ops);
 	print_ops(&ops);
 	frees(&a, &sorted, &ops);
 	return (0);

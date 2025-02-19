@@ -126,4 +126,5 @@ void	operation(t_node **A, t_node **B, t_ops **ops)
 		}
 	}
 	final_fix(A, ops);
+	// optimizer(ops);
 }
