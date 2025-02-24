@@ -87,7 +87,6 @@ int	main(int argc, char **argv)
 	add_index(&a, &sorted);
 	half_push_b(&a, &b, &ops);
 	operation(&a, &b, &ops);
-	optimizer(&ops);
 	print_ops(&ops);
 	frees(&a, &sorted, &ops);
 	return (0);

@@ -73,15 +73,16 @@ int	main(int argc, char **argv)
 
 	if (argc == 1)
 		return (0);
+	if (input_check(argc, argv))
+		return (0);
 	a = NULL;
 	b = NULL;
 	sorted = NULL;
 	ops = NULL;
-	while (argc - 1)
+	while (argc-- > 1)
 	{
-		insert_add_head(&a, atoi(argv[argc - 1]));
-		insert_add_head(&sorted, atoi(argv[argc - 1]));
-		argc--;
+		insert_add_head(&a, ft_atol(argv[argc]));
+		insert_add_head(&sorted, ft_atol(argv[argc]));
 	}
 	sort_list(&sorted);
 	add_index(&a, &sorted);
