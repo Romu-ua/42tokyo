@@ -100,10 +100,15 @@ int	check_sorted(t_node **A)
 	return (1);
 }
 
-void	operation(t_node **A, t_node **B, t_ops **ops)
+void	operation(t_node **A, t_node **B, t_node **sorted, t_ops **ops)
 {
 	int	elm_num;
 
+	if (check_sorted(A))
+	{
+		frees(A, sorted, ops);
+		return ;
+	}
 	half_push_b(A, B, ops);
 	while (1)
 	{

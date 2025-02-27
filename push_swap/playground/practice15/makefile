@@ -1,5 +1,5 @@
-CC = clang -fsanitize=address -g
-# CC = cc
+# CC = clang -fsanitize=address -g
+CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 SOURCES = case.c half_push.c main.c operation.c push.c record_op.c reverse_rotate.c rotate.c \

@@ -46,7 +46,7 @@ void	final_fix(t_node **A, t_ops **ops)
 	}
 	else
 	{
-		while (len - cnt - 1)
+		while (len - cnt)
 		{
 			reverse_rotate_a(A, ops);
 			cnt++;

@@ -68,7 +68,7 @@ void	half_push_b(t_node **A, t_node **B, t_ops **ops);
 void	half_push_a(t_node **B, t_node **A, t_ops **ops);
 void	sort(t_node **B, t_ops **ops);
 void	sort_n3(t_node **B, t_ops **ops);
-void	operation(t_node **A, t_node **B, t_ops **ops);
+void	operation(t_node **A, t_node **B, t_node **sorted, t_ops **ops);
 int		check_sorted(t_node **A);
 int		get_elm_num(t_node **A);
 void	fix(t_node **A, t_node **B, t_ops **ops);
@@ -88,5 +88,6 @@ int		ft_isdigit(int c);
 void	ft_qsort(int *arr, int size);
 void	ft_s_printf(char *str);
 void	simple_sort(t_node **a, t_node **b, t_ops **ops, int size);
+void	frees(t_node **A, t_node **sorted, t_ops **ops);
 
 #endif

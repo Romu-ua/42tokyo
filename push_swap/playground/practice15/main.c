@@ -66,7 +66,7 @@ int	main(int argc, char **argv)
 	t_node	*a;
 	t_node	*b;
 	t_node	*sorted;
-	t_node	*ops;
+	t_ops	*ops;
 	int		i;
 
 	if (argc == 1 || input_check(argc, argv))
@@ -79,15 +79,10 @@ int	main(int argc, char **argv)
 	}
 	sort_list(&sorted);
 	add_index(&a, &sorted);
-	if (check_sorted(&a))
-	{
-		frees(&a, &sorted, &ops);
-		return (0);
-	}
 	if (argc <= 7)
 		simple_sort(&a, &b, &ops, argc - 1);
 	else
-		operation(&a, &b, &ops);
+		operation(&a, &b, &sorted, &ops);
 	print_ops(&ops);
 	frees(&a, &sorted, &ops);
 	return (0);
