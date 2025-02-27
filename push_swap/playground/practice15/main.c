@@ -24,7 +24,7 @@ void	free_node_all(t_node **stack)
 		return ;
 	while (1)
 	{
-		next = tmp->pnextnode;
+		next = tmp->pnext;
 		free(tmp);
 		if (next == head)
 			break ;
@@ -66,25 +66,28 @@ int	main(int argc, char **argv)
 	t_node	*a;
 	t_node	*b;
 	t_node	*sorted;
-	t_ops	*ops;
+	t_node	*ops;
+	int		i;
 
-	if (argc == 1)
+	if (argc == 1 || input_check(argc, argv))
 		return (0);
-	if (input_check(argc, argv))
-		return (0);
-	a = NULL;
-	b = NULL;
-	sorted = NULL;
-	ops = NULL;
-	while (argc-- > 1)
+	i = argc;
+	while (i-- > 1)
 	{
-		insert_add_head(&a, ft_atol(argv[argc]));
-		insert_add_head(&sorted, ft_atol(argv[argc]));
+		insert_add_head(&a, ft_atol(argv[i]));
+		insert_add_head(&sorted, ft_atol(argv[i]));
 	}
 	sort_list(&sorted);
 	add_index(&a, &sorted);
-	half_push_b(&a, &b, &ops);
-	operation(&a, &b, &ops);
+	if (check_sorted(&a))
+	{
+		frees(&a, &sorted, &ops);
+		return (0);
+	}
+	if (argc <= 7)
+		simple_sort(&a, &b, &ops, argc - 1);
+	else
+		operation(&a, &b, &ops);
 	print_ops(&ops);
 	frees(&a, &sorted, &ops);
 	return (0);

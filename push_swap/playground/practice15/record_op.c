@@ -65,9 +65,9 @@ void	print(t_op op)
 	else if (op == 5)
 		write(1, "rb\n", 3);
 	else if (op == 6)
-		write(1, "rra\n", 3);
+		write(1, "rra\n", 4);
 	else if (op == 7)
-		write(1, "rrb\n", 3);
+		write(1, "rrb\n", 4);
 }
 
 void	print_ops(t_ops **ops)

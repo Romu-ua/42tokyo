@@ -21,8 +21,8 @@ void	ft_qsort(int *arr, int size)
 	i = 0;
 	while (i < size - 1)
 	{
-		j = i;
-		while (j < size - 1)
+		j = 0;
+		while (j < size - i - 1)
 		{
 			if (arr[j] > arr[j + 1])
 			{

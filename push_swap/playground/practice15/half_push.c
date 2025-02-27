@@ -31,7 +31,7 @@ int	calculation_threshold(t_node **stack)
 	while (i < len)
 	{
 		indices[i] = tmp->index;
-		tmp = tmp->pnextnode;
+		tmp = tmp->pnext;
 		i++;
 	}
 	ft_qsort(indices, len);
@@ -42,9 +42,9 @@ int	calculation_threshold(t_node **stack)
 
 void	half_push_b(t_node **A, t_node **B, t_ops **ops)
 {
+	int		threshold;
 	int		len;
 	int		i;
-	int		threshold;
 
 	threshold = calculation_threshold(A);
 	if (threshold == -1)
@@ -59,6 +59,8 @@ void	half_push_b(t_node **A, t_node **B, t_ops **ops)
 			i++;
 			continue ;
 		}
+		if (check_sorted(A))
+			break ;
 		i++;
 		rotate_a(A, ops);
 	}

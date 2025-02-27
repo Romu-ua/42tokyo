@@ -1,37 +1,47 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_qsort.c                                         :+:      :+:    :+:   */
+/*   length_list.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyamamot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 12:59:20 by hyamamot          #+#    #+#             */
-/*   Updated: 2025/02/24 12:59:21 by hyamamot         ###   ########.fr       */
+/*   Created: 2025/02/19 16:23:33 by hyamamot          #+#    #+#             */
+/*   Updated: 2025/02/19 16:23:34 by hyamamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
-void	ft_qsort(int *arr, int size)
+int	length_list(t_node **stack)
 {
-	int	i;
-	int	j;
-	int	tmp;
+	t_node	*tmp_node;
+	int		len;
 
-	i = 0;
-	while (i < size - 1)
+	if (!stack || !*stack)
+		return (0);
+	tmp_node = *stack;
+	len = 1;
+	while (tmp_node->pnext != *stack)
 	{
-		j = i;
-		while (j < size - 1)
-		{
-			if (arr[j] > arr[j + 1])
-			{
-				tmp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = tmp;
-			}
-			j++;
-		}
-		i++;
+		len++;
+		tmp_node = tmp_node->pnext;
 	}
+	return (len);
+}
+
+int	op_length_list(t_ops **ops)
+{
+	t_ops	*tmp;
+	int		len;
+
+	if (!ops || !*ops)
+		return (0);
+	tmp = *ops;
+	len = 1;
+	while (tmp->pnext != *ops)
+	{
+		len++;
+		tmp = tmp->pnext;
+	}
+	return (len);
 }

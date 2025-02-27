@@ -1,37 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_qsort.c                                         :+:      :+:    :+:   */
+/*   ft_s_printf.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyamamot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 12:59:20 by hyamamot          #+#    #+#             */
-/*   Updated: 2025/02/24 12:59:21 by hyamamot         ###   ########.fr       */
+/*   Created: 2025/02/24 13:26:43 by hyamamot          #+#    #+#             */
+/*   Updated: 2025/02/24 13:26:44 by hyamamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "main.h"
 
-void	ft_qsort(int *arr, int size)
+void	ft_s_printf(char *str)
 {
-	int	i;
-	int	j;
-	int	tmp;
-
-	i = 0;
-	while (i < size - 1)
+	if (!str)
 	{
-		j = i;
-		while (j < size - 1)
-		{
-			if (arr[j] > arr[j + 1])
-			{
-				tmp = arr[j];
-				arr[j] = arr[j + 1];
-				arr[j + 1] = tmp;
-			}
-			j++;
-		}
-		i++;
+		write(1, "(null)", 6);
+		return ;
 	}
+	while (*str)
+	{
+		write(1, str, 1);
+		str++;
+	}
+	return ;
 }

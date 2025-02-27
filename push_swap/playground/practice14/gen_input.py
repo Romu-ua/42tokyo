@@ -1,6 +1,6 @@
 import random
 
-def generate_unique_sequence(int_max, count=500):
+def generate_unique_sequence(int_max, count=50):
     if count > int_max:
         raise ValueError("count must be less than or equal to int_max")
 
@@ -8,5 +8,5 @@ def generate_unique_sequence(int_max, count=500):
     return " ".join(map(str, numbers))
 
 # 使用例
-int_max = 2147483647  # 任意の最大値を指定
+int_max = 214748364711111  # 任意の最大値を指定
 print(generate_unique_sequence(int_max))

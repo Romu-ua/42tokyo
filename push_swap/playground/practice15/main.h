@@ -42,8 +42,8 @@ typedef struct s_node
 {
 	int				data;
 	int				index;
-	struct s_node	*pnextnode;
-	struct s_node	*pprevnode;
+	struct s_node	*pnext;
+	struct s_node	*pprev;
 }	t_node;
 int		length_list(t_node **stack);
 t_node	*create_node(int data);
@@ -87,5 +87,6 @@ int		input_check(int argc, char **argv);
 int		ft_isdigit(int c);
 void	ft_qsort(int *arr, int size);
 void	ft_s_printf(char *str);
+void	simple_sort(t_node **a, t_node **b, t_ops **ops, int size);
 
 #endif
