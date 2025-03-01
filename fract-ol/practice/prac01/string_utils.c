@@ -12,3 +12,14 @@ int	ft_strcmp(char *s1, char *s2, int n)
 	}
 	return (*s1 - *s2);
 }
+
+void	putstr_fd(char *s, int fd)
+{
+	if (s == NULL || fd < 0)
+		return ;
+	if (!*s)
+	{
+		write(fd, s, 1);
+		putstr_fd(s + 1, fd);
+	}
+}

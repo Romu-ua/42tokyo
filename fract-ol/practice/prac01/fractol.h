@@ -8,11 +8,13 @@
 # include "mlx.h"
 
 #define ERROR_MESSAGE "Please enter \n\t\" ./fractol mandelbrot\" or \n\t\" ./fractol julia <x> <y>\n"
+#define WIDTH	800
+#define HEIGHT	800
 
 typedef struct	s_img
 {
-	void	*img_ptr;
-	char	*pixels_ptr;
+	void	*img_ptr; // pointer to image struct
+	char	*pixels_ptr; // points to the actual pixels
 	int		bpp;
 	int		endian;
 	int		line_len;
@@ -20,13 +22,15 @@ typedef struct	s_img
 
 typedef struct	s_fractal
 {
-	void	*mlx_connection;
-	void	*mlx_windows;
+	char	*name;
+	void	*mlx_connection; // mlx_init()
+	void	*mlx_windows; // mlx_new_window()
 	t_img	img;
-	// TODO
 }				t_fractal;
 
 
-int	ft_strcmp(char *s1, char *s2, int n);
+int		ft_strcmp(char *s1, char *s2, int n);
+void	putstr_fd(char *s, int fd);
+void	fractal_init(t_fractal *fractal);
 
 #endif
