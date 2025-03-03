@@ -62,7 +62,6 @@ void	color_screen(t_var *data, int color)
 			// ちらつき(フリッカー)が発生しない
 			// ちらつきとは、描画途中で画像が更新されると、前フレームと次フレームのデータが混在して表示される現象のこと
 			my_pixel_put(&data->img, x, y, color);
-
 		}
 	}
 }
