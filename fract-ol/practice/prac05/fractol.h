@@ -25,6 +25,8 @@
 ./fractol julia <x> <y>\n"
 # define WIDTH 800
 # define HEIGHT 800
+# define BLACK 0x000000
+# define WHITE 0xFFFFFF
 
 typedef struct s_complex
 {
@@ -53,12 +55,23 @@ typedef struct s_fractol
 	double	shift_y;
 	double	zoom;
 }	t_fractol;
+typedef struct s_tmp
+{
+	int	x;
+	int	y;
+}	t_tmp;
 
-int		ft_strncmp(char	*s1, char *s2, int n);
-void	putstr_fd(char *s, int fd);
-double	ft_atof(const char *str);
-int		key_handler(t_fractol *fractol);
-int		mouse_handler(t_fractol *fractol);
-int		close_handler(t_fractol *fractol);
+void		init(t_fractol *fractol);
+void		render(t_fractol *fractol);
+int			ft_strncmp(char	*s1, char *s2, int n);
+void		putstr_fd(char *s, int fd);
+double		ft_atof(const char *str);
+int			key_handler(int keysym, t_fractol *fractol);
+int			mouse_handler(int button, int x, int y, t_fractol *fractol);
+int			close_handler(t_fractol *fractol);
+double		map(double unscaled, double new_min, \
+	double new_max, double old_max);
+t_complex	sum_complex(t_complex z1, t_complex z2);
+t_complex	square_complex(t_complex z);
 
 #endif

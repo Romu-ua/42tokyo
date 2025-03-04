@@ -1,10 +1,10 @@
 CC = cc
 
 NAME = fractol
-SRC = main.c init.c string_utils.c render.c math_utils.c events.c
+SRC = main.c init.c render.c main_utils.c map.c event.c
 OBJ = $(SRC:.c=.o)
 
-MLX_DIR = ./minilibx-linux
+MLX_DIR = ../../minilibx-linux
 X11_DIR = /opt/homebrew/Cellar/libx11/1.8.11
 XEXT_DIR = /opt/homebrew/Cellar/libxext/1.3.6
 

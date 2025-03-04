@@ -1,28 +1,21 @@
 CC = cc
+CFLAGS = -Wall -Wextra -Werror
 
-NAME = fractol
+MLX_DIR = minilibx-linux
+MLX_LIB = -L$(MLX_DIR) -lmlx_Linux -L/usr/lib -lXext -lX11 -lm
 
-SRC = main.c
-
+SRC = main.c main_utils.c
 OBJ = $(SRC:.c=.o)
 
-MLX_DIR = ../minilibx-linux
-X11_DIR = /opt/homebrew/Cellar/libx11/1.8.11
-XEXT_DIR = /opt/homebrew/Cellar/libxext/1.3.6
-
-CFLAGS = -Wall -Wextra -Werror
-CFLAGS += -I$(MLX_DIR) -I$(X11_DIR)/include -I$(XEXT_DIR)/include
-
-LDFLAGS = -L$(MLX_DIR) -L$(X11_DIR)/lib -L$(XEXT_DIR)/lib
-LDFLAGS += -lmlx -lX11 -lXext -framework OpenGL -framework AppKit
+NAME = fractol
 
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) $(LDFLAGS) -o $(NAME)
+	$(CC) $(CFLAGS) $(OBJ) $(MLX_LIB) -o $(NAME)
 
 %.o: %.c
-	$(CC) $(CFLAGS) -c $< -o $@
+	$(CC) $(CFLAGS) -I$(MLX_DIR) -c $< -o $@
 
 clean:
 	rm -f $(OBJ)
@@ -31,3 +24,5 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+.PHONY: all clean fclean re

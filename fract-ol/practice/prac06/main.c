@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: hyamamot <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/03/03 15:16:28 by hyamamot          #+#    #+#             */
-/*   Updated: 2025/03/03 15:16:31 by hyamamot         ###   ########.fr       */
+/*   Created: 2025/03/04 16:52:38 by hyamamot          #+#    #+#             */
+/*   Updated: 2025/03/04 16:52:38 by hyamamot         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,27 @@
 
 int	main(int argc, char **argv)
 {
-	t_fractal	fractal;
+	t_fractol	fractol;
 
 	if (!argv || !*argv)
 		return (0);
-	if ((argc == 2 && !ft_strcmp(argv[1], "mandelbrot", 10))
-		|| (argc == 4 && !ft_strcmp(argv[1], "julia", 5)))
+	if ((argc == 2 && !ft_strncmp(argv[1], "mandelbrot", 11))
+		|| (argc == 4 && !ft_strncmp(argv[1], "julia", 6)))
 	{
-		fractal.name = argv[1];
-		if (!ft_strcmp(fractal.name, "julia", 5))
+		fractol.name = argv[1];
+		if (!ft_strncmp(argv[1], "julia", 6))
 		{
-			fractal.julia_x = atodbl(argv[2]);
-			fractal.julia_y = atodbl(argv[3]);
+			fractol.julia_x = ft_atof(argv[2]);
+			fractol.julia_x = ft_atof(argv[3]);
 		}
-		fractal_init(&fractal);
-		fractal_render(&fractal);
-		mlx_loop(fractal.mlx_connection);
+		init(&fractol);
+		render(&fractol);
+		mlx_loop(fractol.mlx);
 	}
 	else
 	{
 		putstr_fd(ERROR_MESSAGE, 1);
 		exit(1);
 	}
+	return (0);
 }

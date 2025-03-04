@@ -51,7 +51,7 @@ void	init(t_fractol *fractol)
 				WIDTH, HEIGHT);
 	if (fractol->img.img_ptr == NULL)
 	{
-		mlx_destroy_window(fractol->mlx_win);
+		mlx_destroy_window(fractol->mlx, fractol->mlx_win);
 		mlx_destroy_display(fractol->mlx);
 		free(fractol->mlx);
 		malloc_error();
@@ -59,6 +59,6 @@ void	init(t_fractol *fractol)
 	fractol->img.pixels_ptr = mlx_get_data_addr(fractol->img.img_ptr,
 			&(fractol->img.bpp), &(fractol->img.line_len),
 			&(fractol->img.endian));
-	events_init(fractol);
+	event_init(fractol);
 	data_init(fractol);
 }
