@@ -64,19 +64,12 @@ int main(int argc, char **argv)
 		insert_add_head(&a, ft_atol(argv[i - 1]));
 		i--;
 	}
-
 	addidx(&a, argv);
-	i = 0;
-	while (i < argc - 1)
-	{
-		printf("%d ", a->index);
-		a = a->pnext;
-		i++;
-	}
 	if (argc <= 7)
 		simple_sort(&a, &ops, argc - 1);
-	// else
-	// 	operation(&a, &ops);
+	else
+		operation(&a, &ops);
+	// optimizer(&ops);
 	print_ops(&ops);
 	frees(&a, &ops);
 	return (0);

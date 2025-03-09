@@ -38,21 +38,22 @@ void	sort_three_b(t_node **b, t_ops **ops)
 	first = (*b)->index;
 	second = (*b)->pnext->index;
 	third = (*b)->pprev->index;
-
 	if (first < second && second < third)
 	{
 		swap_b(b, ops);
 		reverse_rotate_b(b, ops);
 	}
-	else if (first < third && third < second)
-		rotate_b(b, ops);
-	else if (first > third && third > second) 
-		swap_b(b, ops);
-	else if (first > second && second < third)
+	else if (first > second && first < third)
 		reverse_rotate_b(b, ops);
-	else if (first > third && third < second)
+	else if ((first > second && first > third) && second > third)
+		return ;
+	else if ((first > second && first > third) && second < third)
 	{
 		swap_b(b, ops);
 		rotate_b(b, ops);
 	}
+	else if ((first < second && first < third) && second > third)
+		rotate_b(b, ops);
+	else if (first < second && first > third)
+		swap_b(b, ops);
 }

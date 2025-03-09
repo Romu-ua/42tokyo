@@ -5,7 +5,7 @@ int	list_len(t_node **a)
 	t_node	*tmp_node;
 	int		len;
 
-	if (!a || !*a)
+	if (!a || !((*a)->pnext))
 		return (0);
 	tmp_node = *a;
 	len = 1;

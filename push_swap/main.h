@@ -57,4 +57,12 @@ void	reverse_rotate_b(t_node **stack, t_ops **ops);
 void	record_op(t_ops **ops, t_op op);
 void	print_ops(t_ops **ops);
 
+void	sort_fix(t_node **a, t_node **b, t_ops **ops);
+void	threshold_push_b(t_node **a, t_node **b, t_ops **ops, int threshold);
+void	threshold_push_a(t_node **a, t_node **b, t_ops **ops, int threshold);
+void	operation(t_node **a, t_ops **ops);
+// void	optimizer(t_ops **ops);
+int		start_node(t_node **a);
+
+
 #endif
