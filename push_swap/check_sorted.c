@@ -20,16 +20,14 @@ int	check_sorted_a(t_node **a)
 	t_node	*start;
 
 	if (!a || !*a)
-		return (0);
+		return (1);
 	start = start_node(a);
 	tmp = start;
-	while (1)
+	while (start != tmp->pnext)
 	{
 		if (tmp->index > tmp->pnext->index)
-			return (1);
-		if (start == tmp->pnext)
-			break ;
+			return (0);
 		tmp = tmp->pnext;
 	}
-	return (0);
+	return (1);
 }

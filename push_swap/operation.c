@@ -97,18 +97,19 @@ static void	final_fix(t_node **a, t_ops **ops)
 static int	get_elm_num(t_node **a)
 {
 	int		max;
-	int		min;
+	int		iwi;
 	int		count;
 	t_node	*tmp;
 
-	if (!a)
-		return (-1);
 	max = -1;
-	min = (*a)->pprev->index + 1;
+	iwi = (*a)->pprev->index + 1;
 	count = 0;
 	tmp = *a;
-	while (max - min + 1 != count)
+	while (max - iwi != count)
 	{
+		//debug
+		// printf("iwi is %d\n", iwi);
+		// printf("max is %d\n", max);
 		count++;
 		if (tmp->index > max)
 			max = tmp->index;
@@ -117,89 +118,67 @@ static int	get_elm_num(t_node **a)
 	return (count);
 }
 
+static void	b_init(t_node **b)
+{
+	(*b)->data = 0;
+	(*b)->index = 0;
+	(*b)->pnext = NULL;
+	(*b)->pprev = NULL;
+}
+
+static void	sorted_elm_fix(t_node **a, t_ops **ops)
+{
+
+	// printf("(*a)->pprev->index is %d\n", (*a)->pprev->index);
+	// int len = list_len(a);
+	// printf("index\n");
+	// for (int i = 0; i < len; i++) {
+	// 	printf("%d\n", (*a)->index);
+	// 	(*a) = (*a)->pnext;
+	// }
+
+	if ((*a)->pprev->index + 1 == (*a)->index)
+	{
+		// debug
+		printf("found sorted elm\n");
+		rotate_a(a, ops);
+	}
+}
+
 void	operation(t_node **a, t_ops **ops)
 {
 	t_node	*b;
 	int		threshold;
 	int		elm_num;
-	int		i;
 
 	b = (t_node *)malloc(sizeof(t_node));
+	if (!b)
+		return ;
+	b_init(&b);
 	threshold = -1;
-	while (check_sorted_a(a))
+	while (!check_sorted_a(a))
 	{
 		threshold = calculation_threshold(a);
-		// debug
-		printf("threshold %d\n", threshold);
 		threshold_push_b(a, &b, ops, threshold);
-		// debug
-		printf("-----------\n");
-		t_node	*tmp;
-		tmp = (*a);
-		int len = list_len(a);
-		for (int i = 0; i < len; i++) {
-			printf("%d\n", tmp->data);
-			tmp = tmp->pnext;
-		}
-		printf("-----------\n");
-		tmp = b;
-		len = list_len(&b);
-		for (int i = 0; i < len; i++) {
-			printf("%d\n", tmp->data);
-			tmp = tmp->pnext;
-		}
-		printf("-----------\n");
 		while (1)
 		{
-
 			while (1)
 			{
 				if (list_len(&b) <= 3)
 					break ;
 				threshold = calculation_threshold(&b);
-				// debug
-				printf("b threshold is %d\n", threshold);
 				threshold_push_a(a, &b, ops, threshold);
-				// debug
-				printf("-----------\n");
-				t_node	*tmp;
-				tmp = (*a);
-				int len = list_len(a);
-				for (int i = 0; i < len; i++) {
-					printf("%d\n", tmp->data);
-					tmp = tmp->pnext;
-				}
-				printf("-----------\n");
-				tmp = b;
-				len = list_len(&b);
-				for (int i = 0; i < len; i++) {
-					printf("%d\n", tmp->data);
-					tmp = tmp->pnext;
-				}
-				printf("-----------\n");
 			}
 			sort_fix(a, &b, ops);
-			// debug
-			printf("-----------\n");
-			t_node	*tmp;
-			tmp = (*a);
-			int len = list_len(a);
-			for (int i = 0; i < len; i++) {
-				printf("%d\n", tmp->data);
-				tmp = tmp->pnext;
-			}
-			printf("-----------\n");
-
-			if (check_sorted_a(a)) {
-				printf("after sort_fix check_sorted_a\n");
+			if (check_sorted_a(a))
 				break;
-			}
+			sorted_elm_fix(a, ops);
+			if (check_sorted_a(a))
+				break ;
 			elm_num = get_elm_num(a);
-			// debug
-			printf("elm_num is %d\n", elm_num);
-			i = -1;
-			while (++i <= elm_num)
+			while (elm_num-- >= 0)
 				push_b(a, &b, ops);
+				
 		}
 	}
 	free(b);

@@ -27,6 +27,7 @@ static int	search_node_b(t_node **b, int threshold)
 
 	tmp = *b;
 	len = list_len(b);
+	// printf("%d\n", len);
 	pos = 0;
 	while (pos < len)
 	{

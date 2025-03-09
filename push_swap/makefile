@@ -1,5 +1,6 @@
 # CC = clang -fsanitize=address -g
-CC = cc
+CC = gcc -g
+# CC = cc
 
 CFLAGS = -Wall -Werror -Wextra
 SOURCES = main.c addidx.c check_sorted.c ft_atol.c input_check.c insert_add_head.c list_len.c push.c \

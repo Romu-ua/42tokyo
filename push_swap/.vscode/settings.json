@@ -1,6 +1,7 @@
 {
 	"files.associations": {
-		"main.h": "c"
+		"main.h": "c",
+		"limits": "c"
 	},
 	"editor.insertSpaces": false
 }
