@@ -49,7 +49,7 @@ int	main()
 		const char *msg = "Hello from parent!";
 		write(pipefd[1], msg, strlen(msg) + 1);
 		close(pipefd[1]);
+		// 書き込み口を閉じたことで、子プロセスのreadが解除される
 	}
-
 	return (0);
 }

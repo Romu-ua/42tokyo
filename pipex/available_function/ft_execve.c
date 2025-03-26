@@ -11,13 +11,23 @@
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <unistd.h>
 
-// 現在のプロセスを指定した新しいプログラムで置き換えるための関数
 int	main(int argc, char **argv, char **envp)
 {
-	printf("Hello from execve!\n");
-	for (int i = 0; i < argc; i++) {
-		printf("argv[%d] = %s\n", i, argv[i]);
-	}
+	// printf("Hello from execve!\n");
+	// for (int i = 0; i < argc; i++) {
+	// 	printf("argv[%d] = %s\n", i, argv[i]);
+	// }
+
+	// どちらかのexecveしか実行されない
+	// char *input[] = {".", NULL};
+	// execve("/bin/pwd", input, envp);
+	// execve("/bin/ls", input, envp);
+
+	char *args[] = {"/bin/ls", "-l", "../", NULL};
+	execve("/bin/ls", argv, envp);
+
+
 	return (0);
 }
