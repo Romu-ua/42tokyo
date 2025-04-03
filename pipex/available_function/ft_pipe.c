@@ -27,9 +27,7 @@ int	main()
 		perror("pipe");
 		return (1);
 	}
-
 	pid = fork();
-
 	if (pid < 0)
 	{
 		perror("fork error");
